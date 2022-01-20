@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClassZombie.hpp                                    :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:12:58 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/20 12:19:38 by fballest         ###   ########.fr       */
+/*   Updated: 2022/01/20 12:45:33 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLASSZOMBIE_H
-# define CLASSZOMBIE_H
+#ifndef ZOMBIE_H
+# define ZOMBIE_H
 
 #include <iostream>
 #include <string>

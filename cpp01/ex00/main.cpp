@@ -6,11 +6,11 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 13:22:51 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/20 12:42:10 by fballest         ###   ########.fr       */
+/*   Updated: 2022/01/20 12:45:51 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClassZombie.hpp"
+#include "Zombie.hpp"
 
 int     main()
 {

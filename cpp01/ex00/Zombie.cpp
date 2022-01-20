@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClassZombie.cpp                                    :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 13:25:20 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/20 12:19:56 by fballest         ###   ########.fr       */
+/*   Updated: 2022/01/20 12:45:31 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClassZombie.hpp"
+#include "Zombie.hpp"
 
 Zombie::Zombie(std::string name): _name()
 {
