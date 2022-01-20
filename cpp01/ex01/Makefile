@@ -6,15 +6,15 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/01/20 12:46:50 by fballest         ###   ########.fr        #
+#    Updated: 2022/01/20 13:16:41 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # FILE NAME
-NAME = Zombie
+NAME = ZombieHorde
 
 # SOURCES AND OBJECTS
-SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC = main.cpp Zombie.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION

@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:12:58 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/20 12:45:33 by fballest         ###   ########.fr       */
+/*   Updated: 2022/01/20 12:50:56 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,13 @@ class Zombie {
 	public:
 		Zombie(std::string name);
 		~Zombie(void);
-		Zombie* 		newZombie( std::string name );
 		void			setName(std::string name);
 		std::string		getName(void);
 		void			announce(void);
 	
 };
 
-Zombie 	*newZombie( std::string name );
+Zombie*	newZombie( std::string name );
 void 	randomChump( std::string name );
 #endif
 

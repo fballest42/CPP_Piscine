@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/19 13:26:01 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/20 12:51:03 by fballest         ###   ########.fr       */
+/*   Created: 2022/01/20 09:12:58 by fballest          #+#    #+#             */
+/*   Updated: 2022/01/20 14:18:30 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_H
+# define ZOMBIE_H
 
-Zombie*		newZombie( std::string name )
-{
-	Zombie		*new_zom;
+#include <iostream>
+#include <string>
+#include <array>
+
+class Zombie {
+		std::string		_name;
+
+	public:
+		Zombie(std::string name);
+		~Zombie(void);
+		void			setName(std::string name);
+		std::string		getName(void);
+		void			announce(void);
 	
-	std::cout << "Mordor working on creating a Zombie in the STACK" << std::endl; 
-	new_zom = new Zombie(name);
-	return (new_zom);
-}
+};
+
+Zombie*		zombieHorde( int N, std::string name );
+#endif
+
