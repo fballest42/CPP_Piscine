@@ -6,15 +6,15 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/01/20 16:15:06 by fballest         ###   ########.fr        #
+#    Updated: 2022/01/20 16:14:33 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # FILE NAME
-NAME = ZombieHorde
+NAME = ThisBrain
 
 # SOURCES AND OBJECTS
-SRC = main.cpp Zombie.cpp ZombieHorde.cpp
+SRC = main.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION
@@ -31,16 +31,16 @@ RESET = \033[0m
 
 all: $(NAME)
 $(NAME): $(OBJS)
-	@echo "$(BLUE)==========CREATING ZOMBIEHORDE==========$(RESET)"
+	@echo "$(BLUE)==========CREATING THISBRAIN==========$(RESET)"
 	@$(CC) $(CFLAGS) ${OBJS} -o ${NAME}
-	@echo "ZombieHorde file done"
+	@echo "ThisBrain file done"
 	@echo "$(GREEN)==========WELLDONE==========$(RESET)"
-	@echo "Success creating ZombieHorde file"
+	@echo "Success creating ThisBrain file"
 
 clean:
 	@$(RM) $(OBJS)
 	@echo "$(GREEN)==========REMOVED==========$(RESET)"
-	@echo "Success normal cleaning of ZombieHorde"
+	@echo "Success normal cleaning of ThisBrain"
 
 re:	clean all
 
@@ -48,6 +48,6 @@ fclean:
 	@$(RM) $(OBJS)
 	@$(RM) $(NAME)
 	@echo "$(GREEN)==========REMOVED==========$(RESET)"
-	@echo "Success full cleaning of ZombieHorde"
+	@echo "Success full cleaning of ThisBrain"
 
 .PHONY: all clean fclean re shell
