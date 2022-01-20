@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClassZombie.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/19 13:22:51 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/20 12:42:10 by fballest         ###   ########.fr       */
+/*   Created: 2022/01/19 13:25:20 by fballest          #+#    #+#             */
+/*   Updated: 2022/01/20 12:19:56 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClassZombie.hpp"
 
-int     main()
+Zombie::Zombie(std::string name): _name()
 {
-	Zombie		new_heap_zom("Zombi_Normal");
-	Zombie		*new_stack_zom;
+	setName(name);
+	this->announce();
+}
 
-	new_stack_zom = newZombie("Zombi_Stack");
-	randomChump("Zombi_Heap");
-	delete new_stack_zom;
-	return (0);
+Zombie::~Zombie(void)
+{
+	std::cout << this->_name << " Destroyed and UnbraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void	Zombie::setName(std::string name)
+{
+	this->_name = name;
+}
+
+std::string		Zombie::getName(void)
+{
+	return (this->_name);
+}
+
+void    Zombie::announce(void)
+{
+	std::cout << this->_name << " BraiiiiiiinnnzzzZ..." << std::endl;
 }

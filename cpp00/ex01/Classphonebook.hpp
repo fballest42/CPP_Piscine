@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:22:26 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/17 12:40:31 by fballest         ###   ########.fr       */
+/*   Updated: 2022/01/20 09:24:56 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,8 @@
 # define CLASSPHONEBOOK_HPP
 
 #include "Classcontacts.hpp"
-#include <cstdlib>
 #include <iostream>
 #include <string>
-#include <cstddef>
-#include <ostream>
-#include <string>
-#include <iomanip>
 
 class Phonebook {
 	private:

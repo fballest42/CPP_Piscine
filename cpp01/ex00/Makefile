@@ -6,7 +6,7 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/01/19 13:28:08 by fballest         ###   ########.fr        #
+#    Updated: 2022/01/20 10:50:39 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = Zombie
 
 # SOURCES AND OBJECTS
-SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC = main.cpp ClassZombie.cpp newZombie.cpp randomChump.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION
