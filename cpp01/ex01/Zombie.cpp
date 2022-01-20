@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 13:25:20 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/20 14:18:31 by fballest         ###   ########.fr       */
+/*   Updated: 2022/01/20 15:46:23 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ Zombie::Zombie(std::string name): _name()
 {
 	setName(name);
 	this->announce();
+}
+
+Zombie::Zombie(void)
+{
+	return ;
 }
 
 Zombie::~Zombie(void)
