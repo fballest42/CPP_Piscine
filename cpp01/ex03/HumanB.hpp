@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:19:39 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/21 09:58:32 by fballest         ###   ########.fr       */
+/*   Updated: 2022/01/21 11:24:17 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 
 #include <iostream>
 #include <string>
+#include "Weapon.hpp"
 
 class HumanB {
-		Weapon		_weapon;
+		Weapon		*_weapon;
 		std::string _name;
 
 	public:
-		HumanB(void);
 		HumanB(std::string name);
 		~HumanB(void);
 		std::string	getWeapon(void);
-		void		setWeapon(std::string weapon);
+		void		setWeapon(Weapon weapon);
 		void		attack(void);
 };
 

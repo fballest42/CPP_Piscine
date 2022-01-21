@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:19:42 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/21 09:44:53 by fballest         ###   ########.fr       */
+/*   Updated: 2022/01/21 11:20:10 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Weapon {
 		std::string		_type;
 
 	public:
-		Weapon(void);
+		Weapon(std::string weapon);
 		~Weapon(void);
 		std::string	getType(void);
 		void		setType(std::string type);

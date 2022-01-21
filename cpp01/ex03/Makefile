@@ -6,7 +6,7 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/01/20 16:18:16 by fballest         ###   ########.fr        #
+#    Updated: 2022/01/21 11:20:27 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = Human
 
 # SOURCES AND OBJECTS
-SRC = main.cpp Weapon.cpp Weapon.hpp HumanA.cpp HumanA.hpp HumanB.cpp HumanB.hpp
+SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION

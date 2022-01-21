@@ -6,36 +6,33 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:19:34 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/21 10:09:49 by fballest         ###   ########.fr       */
+/*   Updated: 2022/01/21 11:51:19 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanA::HumanB(void)
+HumanB::~HumanB(void)
 {
+	std::cout << this->_name << " was destroyed." << std::endl;
 }
 
-HumanA::~HumanB(void)
-{
-}
-
-HumanB::HumanB(std::string name)
+HumanB::HumanB(std::string name): _weapon(NULL) , _name(name)
 {
 	this->_name = name;
+	std::cout << this->_name << " was created." << std::endl;
 }
 
-std::string		HumanB::getWeapon(void)
+void	HumanB::setWeapon(Weapon weapon)
 {
-	return (this->_weapon);
-}
-
-void	HumanB::setWeapon(std::string weapon)
-{
-	this->_weapon = weapon.setType(weapon);
+	this->_weapon = &weapon;
+	std::cout << this->_name << " has taken a weapon and now is armed." << std::endl;
 }
 
 void	HumanB::attack(void)
 {
-	std::cout << this->_name << " attacks with his " << this->_weapon << std::endl;
+	if (!this->_weapon)
+		std::cout << this->_name << " was unarmed, maybe he can escape." << std::endl;
+	else
+		std::cout << this->_name << " attacks." << std::endl;
 }
