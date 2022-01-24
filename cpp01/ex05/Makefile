@@ -6,15 +6,15 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/01/24 10:34:49 by fballest         ###   ########.fr        #
+#    Updated: 2022/01/24 11:40:14 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # FILE NAME
-NAME = replace
+NAME = Karen
 
 # SOURCES AND OBJECTS
-SRC = main.cpp
+SRC = main.cpp Karen.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION
@@ -31,25 +31,23 @@ RESET = \033[0m
 
 all: $(NAME)
 $(NAME): $(OBJS)
-	@echo "$(BLUE)==========CREATING REPLACE==========$(RESET)"
+	@echo "$(BLUE)==========CREATING KAREN==========$(RESET)"
 	@$(CC) $(CFLAGS) ${OBJS} -o ${NAME}
-	@echo "replace file done"
+	@echo "Karen file done"
 	@echo "$(GREEN)==========WELLDONE==========$(RESET)"
-	@echo "Success creating replace file"
+	@echo "Success creating Karen file"
 
 clean:
 	@$(RM) $(OBJS)
-	@$(RM) prueba.replace
 	@echo "$(GREEN)==========REMOVED==========$(RESET)"
-	@echo "Success normal cleaning of replace"
+	@echo "Success normal cleaning of Karen"
 
 re:	clean all
 
 fclean:
 	@$(RM) $(OBJS)
-	@$(RM) prueba.replace
 	@$(RM) $(NAME)
 	@echo "$(GREEN)==========REMOVED==========$(RESET)"
-	@echo "Success full cleaning of replace"
+	@echo "Success full cleaning of Karen"
 
 .PHONY: all clean fclean re shell
