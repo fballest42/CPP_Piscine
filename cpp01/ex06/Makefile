@@ -6,12 +6,12 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/01/24 13:16:13 by fballest         ###   ########.fr        #
+#    Updated: 2022/01/24 13:30:45 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # FILE NAME
-NAME = Karenfilter
+NAME = karenFilter
 
 # SOURCES AND OBJECTS
 SRC = main.cpp Karen.cpp
@@ -31,16 +31,16 @@ RESET = \033[0m
 
 all: $(NAME)
 $(NAME): $(OBJS)
-	@echo "$(BLUE)==========CREATING KAREN==========$(RESET)"
+	@echo "$(BLUE)==========CREATING KARENFILTER==========$(RESET)"
 	@$(CC) $(CFLAGS) ${OBJS} -o ${NAME}
-	@echo "Karen file done"
+	@echo "karenFilter file done"
 	@echo "$(GREEN)==========WELLDONE==========$(RESET)"
-	@echo "Success creating Karen file"
+	@echo "Success creating karenFilter file"
 
 clean:
 	@$(RM) $(OBJS)
 	@echo "$(GREEN)==========REMOVED==========$(RESET)"
-	@echo "Success normal cleaning of Karen"
+	@echo "Success normal cleaning of karenFilter"
 
 re:	clean all
 
@@ -48,6 +48,6 @@ fclean:
 	@$(RM) $(OBJS)
 	@$(RM) $(NAME)
 	@echo "$(GREEN)==========REMOVED==========$(RESET)"
-	@echo "Success full cleaning of Karen"
+	@echo "Success full cleaning of karenFilter"
 
 .PHONY: all clean fclean re shell
