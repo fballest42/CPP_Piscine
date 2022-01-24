@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 10:59:43 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/24 14:26:42 by fballest         ###   ########.fr       */
+/*   Updated: 2022/01/24 14:48:22 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,45 +66,25 @@ void	Karen::complain(std::string msg)
 	funtion[3] = &Karen::error;
 
 	int i = 0;
-	while (msgs[i] != msg && i < 4)
+	while (msgs[i] != msg)
 		i++;
-	while (i <= 4)
+	switch (i)
 	{
-		switch (i)
-		{
-			case 0:
-				std::cout << "[ " << msgs[0] << " ]" << std::endl;
-				(this->*funtion[i++])();
-				break;
-			case 1:
-				std::cout << "[ " << msgs[1] << " ]" << std::endl;
-				(this->*funtion[i++])();
-				break;
-			case 2:
-				std::cout << "[ " << msgs[2] << " ]" << std::endl;
-				(this->*funtion[i++])();
-				break;
-			case 3:
-				std::cout << "[ " << msgs[3] << " ]" << std::endl;
-				(this->*funtion[i++])();
-				break;
-			default:
-				std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-				i++;
-				break;	
-		}
+		case 0:
+			std::cout << "[ " << msgs[0] << " ]" << std::endl;
+			(this->*funtion[0])();
+		case 1:
+			std::cout << "[ " << msgs[1] << " ]" << std::endl;
+			(this->*funtion[1])();
+		case 2:
+			std::cout << "[ " << msgs[2] << " ]" << std::endl;
+			(this->*funtion[2])();
+		case 3:
+			std::cout << "[ " << msgs[3] << " ]" << std::endl;
+			(this->*funtion[3])();
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			break;	
 	}
-	// int		i = 0;
-	// while (i >= 0 && i < 4)
-	// {
-	// 	if (msgs[i] == msg)
-	// 		while (i < 4)
-	// 		{
-	// 			std::cout << "[ " << msgs[i] << " ]" << std::endl;
-	// 			(this->*funtion[i++])();
-	// 		}
-	// 	i++;
-	// }
-	// if (i < 0 || i >= 4)
-	// 	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 }
