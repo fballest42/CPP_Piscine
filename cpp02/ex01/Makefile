@@ -6,7 +6,7 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/01/24 14:58:30 by fballest         ###   ########.fr        #
+#    Updated: 2022/01/25 13:04:49 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ SRC = main.cpp Fixed.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION
-CC = clang++
-CFLAGS = -Wall -Wextra -Werror
+CC = clang++ --std=c++98
+CFLAGS = -Wall -Wextra -Werror 
 
 # REMOVE FILES INSTRUCTION
 RM = rm -rf

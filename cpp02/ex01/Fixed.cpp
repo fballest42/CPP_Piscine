@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 14:58:59 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/25 10:12:26 by fballest         ###   ########.fr       */
+/*   Updated: 2022/01/25 12:57:24 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,22 @@ Fixed::Fixed(Fixed const &copy)
 	this->_num = copy.getRawBits();
 }
 
+Fixed::Fixed(const int i)
+{
+	std::cout << "Int constructor called." << std::endl;
+	this->_num = (i << this->_snum);
+}
+
+Fixed::Fixed(const float flo)
+{
+	std::cout << "Float constructor called." << std::endl;
+	this->_num = int(flo * (1 << this->_snum));
+}
+
 Fixed &Fixed::operator=(Fixed const &fixed)
 {
 	std::cout << "Assignation operator called." << std::endl;
-	
-	if (this != &fixed)
-		this->_num = fixed.getRawBits();
+	this->_num = fixed.getRawBits();
 	return (*this);
 }
 
@@ -39,11 +49,26 @@ Fixed::~Fixed(void)
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member funtion called." << std::endl;
 	return (this->_num);
 }
 
 void Fixed::setRawBits (int const raw)
 {
 	this->_num = raw;
+}
+
+float	Fixed::toFloat(void) const
+{
+	return ((float)this->_num / (float)(1 << this->_snum));
+}
+
+int		Fixed::toInt(void) const
+{
+	return (this->_num / (1 << this->_snum)); 
+}
+
+std::ostream &operator<<(std::ostream &ret, Fixed const &newop)
+{
+	ret << newop.toFloat();
+	return (ret);
 }
