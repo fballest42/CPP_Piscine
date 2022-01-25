@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 14:58:59 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/25 15:29:00 by fballest         ###   ########.fr       */
+/*   Updated: 2022/01/25 15:37:29 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,55 @@ std::ostream& operator<<(std::ostream &ret, Fixed const &newop)
 {
 	ret << newop.toFloat();
 	return (ret);
+}
+
+Fixed& operator>(Fixed const &fixed)
+{
+	
+	return(*this);
+}
+
+Fixed& operator<(Fixed const &fixed)
+{
+	return(*this);
+}
+
+Fixed& operator>=(Fixed const &fixed)
+{
+	return(*this);
+}
+
+Fixed& operator<=(Fixed const &fixed)
+{
+	return(*this);	
+}
+
+Fixed& operator==(Fixed const &fixed)
+{
+	return(*this);
+}
+
+Fixed& operator!=(Fixed const &fixed)
+{
+	return(*this);
+}
+
+Fixed& operator+(Fixed const &fixed)
+{
+	return(*this);
+}
+
+Fixed& operator-(Fixed const &fixed)
+{
+	return(*this);
+}
+
+Fixed& operator*(Fixed const &fixed)
+{
+	return(*this);
+}
+
+Fixed& operator/(Fixed const &fixed)
+{
+	return(*this);
 }
