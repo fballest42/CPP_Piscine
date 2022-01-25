@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 14:59:21 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/25 10:18:08 by fballest         ###   ########.fr       */
+/*   Updated: 2022/01/25 10:01:03 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Fixed
 {
 private:
 	int					_num;
-	static const int	_snum = 8;
+	static const int	_snum;
 public:
 	Fixed(void);
 	Fixed(Fixed const &copy);
