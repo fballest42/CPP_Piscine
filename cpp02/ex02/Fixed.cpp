@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 14:58:59 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/25 15:37:29 by fballest         ###   ########.fr       */
+/*   Updated: 2022/01/26 12:37:34 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Fixed::Fixed(const int i)
 Fixed::Fixed(const float flo)
 {
 	std::cout << "Float constructor called." << std::endl;
-	this->_num = int(flo * (1 << this->_snum));
+	this->_num = roundf(float(flo * (1 << this->_snum)));
 }
 
 Fixed &Fixed::operator=(Fixed const &fixed)
@@ -73,53 +73,135 @@ std::ostream& operator<<(std::ostream &ret, Fixed const &newop)
 	return (ret);
 }
 
-Fixed& operator>(Fixed const &fixed)
+bool Fixed::operator>(Fixed const &fixed)
 {
-	
-	return(*this);
+	float		a, b;
+	a = toFloat();
+	b = fixed.toFloat();
+
+	if (a > b)
+		return (true);
+	return (false);
 }
 
-Fixed& operator<(Fixed const &fixed)
+bool Fixed::operator<(Fixed const &fixed)
 {
-	return(*this);
+	float		a, b;
+	a = toFloat();
+	b = fixed.toFloat();
+
+	if (a < b)
+		return (true);
+	return (false);
 }
 
-Fixed& operator>=(Fixed const &fixed)
+bool Fixed::operator>=(Fixed const &fixed)
 {
-	return(*this);
+	float		a, b;
+	a = toFloat();
+	b = fixed.toFloat();
+
+	if (a >= b)
+		return (true);
+	return (false);
 }
 
-Fixed& operator<=(Fixed const &fixed)
+bool Fixed::operator<=(Fixed const &fixed)
 {
-	return(*this);	
+	float		a, b;
+	a = toFloat();
+	b = fixed.toFloat();
+
+	if (a <= b)
+		return (true);
+	return (false);
 }
 
-Fixed& operator==(Fixed const &fixed)
+bool Fixed::operator==(Fixed const &fixed)
 {
-	return(*this);
+	float		a, b;
+	a = toFloat();
+	b = fixed.toFloat();
+
+	if (a == b)
+		return (true);
+	return (false);
 }
 
-Fixed& operator!=(Fixed const &fixed)
+bool Fixed::operator!=(Fixed const &fixed)
 {
-	return(*this);
+	float		a, b;
+	a = toFloat();
+	b = fixed.toFloat();
+
+	if (a != b)
+		return (true);
+	return (false);
 }
 
-Fixed& operator+(Fixed const &fixed)
+Fixed &Fixed::operator+(Fixed const &fixed)
 {
-	return(*this);
+	float		a, b;
+	a = toFloat();
+	b = fixed.toFloat();
+	Fixed	res(float(a + b));
+	return (*this);
 }
 
-Fixed& operator-(Fixed const &fixed)
+Fixed &Fixed::operator-(Fixed const &fixed)
 {
-	return(*this);
+	float		a, b;
+	a = toFloat();
+	b = fixed.toFloat();
+	Fixed	res(a - b);
+	return (*this);
 }
 
-Fixed& operator*(Fixed const &fixed)
+Fixed &Fixed::operator*(Fixed const &fixed)
 {
-	return(*this);
+	float		a = 0, b = 0;
+	a = toFloat();
+	b = fixed.toFloat();
+	Fixed	res (a * b);
+	return (*this);
 }
 
-Fixed& operator/(Fixed const &fixed)
+Fixed &Fixed::operator/(Fixed const &fixed)
 {
-	return(*this);
+	float		a, b;
+	a = toFloat();
+	b = fixed.toFloat();
+	Fixed	res(a / b);
+	return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+	float		a;
+	a = toFloat() + (1 << this->_snum);
+	Fixed	res(a);
+	return (*this);
+}
+
+Fixed Fixed::operator--(int)
+{
+	float		a;
+	a = toFloat() - (1 << this->_snum);
+	Fixed	res(a);
+	return (*this);
+}
+
+Fixed &Fixed::operator++(void)
+{
+	Fixed(Fixed const resul);
+	this->_num = roundf(this->_num + (1 << this->_snum));
+	return (resul);
+}
+
+Fixed &Fixed::operator--(void)
+{
+	float		a;
+	a = toFloat() - (1 << this->_snum);
+	Fixed	res(a);
+	return (*this);
 }

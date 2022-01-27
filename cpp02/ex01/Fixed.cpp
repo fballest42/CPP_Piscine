@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 14:58:59 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/25 15:29:00 by fballest         ###   ########.fr       */
+/*   Updated: 2022/01/26 12:13:38 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Fixed::Fixed(const int i)
 Fixed::Fixed(const float flo)
 {
 	std::cout << "Float constructor called." << std::endl;
-	this->_num = int(flo * (1 << this->_snum));
+	this->_num = roundf(float(flo * (1 << this->_snum)));
 }
 
 Fixed &Fixed::operator=(Fixed const &fixed)
