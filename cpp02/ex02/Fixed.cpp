@@ -6,11 +6,13 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 14:58:59 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/26 12:37:34 by fballest         ###   ########.fr       */
+/*   Updated: 2022/01/28 10:23:08 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+// CONSTRUCTORS AND DESTRUCTOR. //
 
 Fixed::Fixed(void): _num(0)
 {
@@ -35,7 +37,7 @@ Fixed::Fixed(const float flo)
 	this->_num = roundf(float(flo * (1 << this->_snum)));
 }
 
-Fixed &Fixed::operator=(Fixed const &fixed)
+Fixed &Fixed::operator=(const Fixed &fixed)
 {
 	std::cout << "Assignation operator called." << std::endl;
 	this->_num = fixed.getRawBits();
@@ -46,6 +48,8 @@ Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called." << std::endl;
 }
+
+// MEMBER FUNTIONS. //
 
 int Fixed::getRawBits(void) const
 {
@@ -67,13 +71,15 @@ int		Fixed::toInt(void) const
 	return (this->_num / (1 << this->_snum)); 
 }
 
-std::ostream& operator<<(std::ostream &ret, Fixed const &newop)
+// COMPARASION MEMBER FUNTIONS. //
+
+std::ostream& operator<<(std::ostream &ret, const Fixed &newop)
 {
 	ret << newop.toFloat();
 	return (ret);
 }
 
-bool Fixed::operator>(Fixed const &fixed)
+bool Fixed::operator>(const Fixed &fixed) const
 {
 	float		a, b;
 	a = toFloat();
@@ -84,7 +90,7 @@ bool Fixed::operator>(Fixed const &fixed)
 	return (false);
 }
 
-bool Fixed::operator<(Fixed const &fixed)
+bool Fixed::operator<(const Fixed &fixed) const
 {
 	float		a, b;
 	a = toFloat();
@@ -95,7 +101,7 @@ bool Fixed::operator<(Fixed const &fixed)
 	return (false);
 }
 
-bool Fixed::operator>=(Fixed const &fixed)
+bool Fixed::operator>=(const Fixed &fixed) const
 {
 	float		a, b;
 	a = toFloat();
@@ -106,7 +112,7 @@ bool Fixed::operator>=(Fixed const &fixed)
 	return (false);
 }
 
-bool Fixed::operator<=(Fixed const &fixed)
+bool Fixed::operator<=(const Fixed &fixed) const
 {
 	float		a, b;
 	a = toFloat();
@@ -117,7 +123,7 @@ bool Fixed::operator<=(Fixed const &fixed)
 	return (false);
 }
 
-bool Fixed::operator==(Fixed const &fixed)
+bool Fixed::operator==(const Fixed &fixed) const
 {
 	float		a, b;
 	a = toFloat();
@@ -128,7 +134,7 @@ bool Fixed::operator==(Fixed const &fixed)
 	return (false);
 }
 
-bool Fixed::operator!=(Fixed const &fixed)
+bool Fixed::operator!=(const Fixed &fixed) const
 {
 	float		a, b;
 	a = toFloat();
@@ -139,69 +145,114 @@ bool Fixed::operator!=(Fixed const &fixed)
 	return (false);
 }
 
-Fixed &Fixed::operator+(Fixed const &fixed)
+// ARITMETICAL MEMBER FUNTIONS. //
+
+Fixed Fixed::operator+(const Fixed &fixed) const
 {
 	float		a, b;
 	a = toFloat();
 	b = fixed.toFloat();
 	Fixed	res(float(a + b));
-	return (*this);
+	return (res);
 }
 
-Fixed &Fixed::operator-(Fixed const &fixed)
+Fixed Fixed::operator-(const Fixed &fixed) const
 {
 	float		a, b;
 	a = toFloat();
 	b = fixed.toFloat();
 	Fixed	res(a - b);
-	return (*this);
+	return (res);
 }
 
-Fixed &Fixed::operator*(Fixed const &fixed)
+Fixed Fixed::operator*(const Fixed &fixed) const
 {
 	float		a = 0, b = 0;
-	a = toFloat();
+	a = this->toFloat();
 	b = fixed.toFloat();
 	Fixed	res (a * b);
-	return (*this);
+	return (res);
 }
 
-Fixed &Fixed::operator/(Fixed const &fixed)
+Fixed Fixed::operator/(const Fixed &fixed) const
 {
 	float		a, b;
 	a = toFloat();
 	b = fixed.toFloat();
 	Fixed	res(a / b);
-	return (*this);
+	return (res);
 }
+
+// POST AND PRE INCREMENTAL AND DECREMENTAL MEMBER FUNTION. //
 
 Fixed Fixed::operator++(int)
 {
-	float		a;
-	a = toFloat() + (1 << this->_snum);
-	Fixed	res(a);
-	return (*this);
+	Fixed	res(*this);
+
+	this->setRawBits(this->getRawBits() + 1);
+	return (res);
 }
 
 Fixed Fixed::operator--(int)
 {
-	float		a;
-	a = toFloat() - (1 << this->_snum);
-	Fixed	res(a);
-	return (*this);
+	Fixed	res(*this);
+
+	this->setRawBits(this->getRawBits() - 1);
+	return (res);
 }
 
 Fixed &Fixed::operator++(void)
 {
-	Fixed(Fixed const resul);
-	this->_num = roundf(this->_num + (1 << this->_snum));
-	return (resul);
+	this->setRawBits(this->getRawBits() + 1);
+	return (*this);
 }
 
 Fixed &Fixed::operator--(void)
 {
-	float		a;
-	a = toFloat() - (1 << this->_snum);
-	Fixed	res(a);
+	this->setRawBits(this->getRawBits() - 1);
 	return (*this);
+}
+
+// MIN AND MAX MEMBER FUNTIONS. //
+
+// const Fixed &Fixed::min(Fixed &a, const Fixed &b)
+// {
+// 	if (a < b)
+// 		return (a);
+// 	return (b);
+// }
+
+// const Fixed &Fixed::max(Fixed &a, const Fixed &b)
+// {
+// 	if (a > b)
+// 		return (a);
+// 	return (b);
+// } 
+
+Fixed &Fixed::min(Fixed &ca, Fixed &cb)
+{
+	if (ca < cb)
+		return (ca);
+	return (cb);
+}
+
+const Fixed	&Fixed::min(const Fixed &ca, const Fixed &cb)
+{
+	if (ca < cb)
+		return (ca);
+	return (cb);
+}
+
+Fixed &Fixed::max(Fixed &ca, Fixed &cb)
+{
+	if (ca > cb)
+		return (ca);
+	return (cb);
+}
+
+const Fixed		&Fixed::max(const Fixed &ca, const Fixed &cb)
+{
+	if (ca > cb)
+		return (ca);
+	return (cb);
 }
