@@ -6,15 +6,15 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/01/31 11:58:58 by fballest         ###   ########.fr        #
+#    Updated: 2022/01/31 13:46:19 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # FILE NAME
-NAME = ClapTrap
+NAME = ScavTrap
 
 # SOURCES AND OBJECTS
-SRC = main.cpp ClapTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION
