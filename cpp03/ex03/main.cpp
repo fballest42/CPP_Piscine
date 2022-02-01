@@ -6,13 +6,14 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 12:18:39 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/01 13:34:36 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/01 15:27:18 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ClapTrap.hpp"
 #include"ScavTrap.hpp"
 #include"FragTrap.hpp"
+#include"DiamondTrap.hpp"
 
 int     main(void)
 {
@@ -91,7 +92,7 @@ int     main(void)
 	FragTrap	GivemeC(GivemeA);
 	FragTrap	GivemeD("Adiosito");
 
-	GivemeD = GivemeB;
+	GivemeA = GivemeB;
 	
 	std::cout << std::endl;
 	GivemeA.highFivesGuys();
@@ -100,5 +101,19 @@ int     main(void)
 	GivemeD.highFivesGuys();
 	std::cout << std::endl;
 	
+	DiamondTrap		MonsterA;
+	DiamondTrap		MonsterB("MUMMY");
+	DiamondTrap		MonsterC(MonsterA);
+	DiamondTrap		MonsterD("GHOST");
+
+	// MonsterA = MonsterB;
+	std::cout << std::endl;
+	std::cout << "NAME: " << MonsterA.getName() << std::endl;
+	std::cout << "CLAP_NAME: " << MonsterA.ClapTrap::getName() << std::endl;
+	std::cout << "HITPOINTS: " << MonsterA.getHitpoint() << std::endl;
+	std::cout << "ENERGY: " << MonsterA.getEnergy() << std::endl;
+	std::cout << "ATTACK DAMAGE: " << MonsterA.getDamage() << std::endl;
+	std::cout << "attack: " << MonsterA.getDamage() << std::endl;
+	std::cout << std::endl; 
 	return (0);
 }

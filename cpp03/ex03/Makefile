@@ -11,10 +11,10 @@
 # **************************************************************************** #
 
 # FILE NAME
-NAME = FragTrap
+NAME = DiamondTrap
 
 # SOURCES AND OBJECTS
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION
