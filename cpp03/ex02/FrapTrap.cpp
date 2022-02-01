@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*   FrapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 11:17:56 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/01 11:47:37 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/01 11:50:26 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ClapTrap.hpp"
+#include"FrapTrap.hpp"
 
 ////// CANONICAL CONSTRUCTORS AND DESTRUCTOR //////
 

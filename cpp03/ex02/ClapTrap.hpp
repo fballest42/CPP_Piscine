@@ -6,12 +6,12 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 11:01:58 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/31 12:00:38 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/01 11:50:41 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLASS_TRAP_H
-# define CLASS_TRAP_H
+#ifndef CLAP_TRAP_H
+# define CLAP_TRAP_H
 
 #include <iostream>
 #include <string>

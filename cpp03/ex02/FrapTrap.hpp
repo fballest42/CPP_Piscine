@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   FrapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 11:01:58 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/01 11:51:32 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/01 11:50:53 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAP_TRAP_H
-# define CLAP_TRAP_H
+#ifndef FRAP_TRAP_H
+# define FRAP_TRAP_H
 
 #include <iostream>
 #include <string>
 #include <cmath>
 
-class ClapTrap
+class FrapTrap
 {
 	private:
 		std::string		_Name;
