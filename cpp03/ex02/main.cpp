@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 12:18:39 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/01 12:13:00 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/01 12:37:04 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,20 @@ int     main(void)
 	std::cout << std::endl;
 	sicarioD.ClapTrap::attack(sicarioD.ClapTrap::getName());
 	sicarioD.ClapTrap::takeDamage(25);
+	std::cout << std::endl;
+
+	FrapTrap	GivemeA;
+	FrapTrap	GivemeB("Holita");
+	FrapTrap	GivemeC(GivemeA);
+	FrapTrap	GivemeD("Adiosito");
+
+	GivemeD = GivemeB;
+	
+	std::cout << std::endl;
+	GivemeA.highFivesGuys();
+	GivemeB.highFivesGuys();
+	GivemeC.highFivesGuys();
+	GivemeD.highFivesGuys();
 	std::cout << std::endl;
 	
 	return (0);

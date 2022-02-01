@@ -6,31 +6,32 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:38:52 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/01 12:14:25 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/01 12:34:08 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ScavTrap.hpp"
+#include"FrapTrap.hpp"
 
-FrapTrap::FrapTrap(void): _Name("ScavSilly"), _Hitpoints(100), _Energy_points(50), _Attack_damage(20)
+FrapTrap::FrapTrap(void): _Name("Frap_Silly"), _Hitpoints(100), _Energy_points(100), _Attack_damage(30)
 {
 	this->ClapTrap::setName(_Name);
 	this->ClapTrap::setHitpoint(_Hitpoints);
 	this->ClapTrap::setEnergy(_Energy_points);
 	this->ClapTrap::setDamage(_Attack_damage);
-	std::cout << this->_Name << "FrapTrap has been constructed with a silly name." << std::endl;
+	std::cout << this->_Name << " FrapTrap has been constructed with a silly name." << std::endl;
 }
 
-FrapTrap::FrapTrap(std::string name): _Hitpoints(100), _Energy_points(50), _Attack_damage(20)
+FrapTrap::FrapTrap(std::string name): _Hitpoints(100), _Energy_points(100), _Attack_damage(30)
 {
+	this->_Name = name;
 	this->ClapTrap::setName(name);
 	this->ClapTrap::setHitpoint(_Hitpoints);
 	this->ClapTrap::setEnergy(_Energy_points);
 	this->ClapTrap::setDamage(_Attack_damage);
-	std::cout << this->_Name << "FrapTrap has been constructed." << std::endl;
+	std::cout << this->_Name << " FrapTrap has been constructed." << std::endl;
 }
 
-FrapTrap::FrapTrap(const ScavTrap &copy)
+FrapTrap::FrapTrap(const FrapTrap &copy)
 {
 	this->_Name = copy.ClapTrap::getName();
 	this->_Hitpoints = copy.ClapTrap::getHitpoint();
@@ -44,7 +45,7 @@ FrapTrap::FrapTrap(const ScavTrap &copy)
 			<< " and all his values." << std::endl;
 }
 
-FrapTrap::FrapTrap::operator=(const FrapTrap &equal)
+FrapTrap &FrapTrap::operator=(const FrapTrap &equal)
 {
 	this->_Name = equal.ClapTrap::getName();
 	this->_Hitpoints = equal.ClapTrap::getHitpoint();

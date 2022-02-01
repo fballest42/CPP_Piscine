@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 11:17:56 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/01 11:47:37 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/01 12:36:56 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &equal)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "Destructor called." << std::endl;
+	std::cout << "ClapTrap Destructor called." << std::endl;
 }
 
 ////// GETTERS AND SETTERS //////

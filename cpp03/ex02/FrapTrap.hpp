@@ -6,12 +6,12 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:33:16 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/01 12:12:35 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/01 12:15:37 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-# define SCAVTRAP_H
+#ifndef FRAPTRAP_H
+# define FRAPTRAP_H
 
 # include"ClapTrap.hpp"
 

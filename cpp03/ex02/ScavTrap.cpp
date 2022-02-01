@@ -6,13 +6,13 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:38:52 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/01 11:48:01 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/01 12:34:11 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void): _Name("ScavSilly"), _Hitpoints(100), _Energy_points(50), _Attack_damage(20)
+ScavTrap::ScavTrap(void): _Name("Scav_Silly"), _Hitpoints(100), _Energy_points(50), _Attack_damage(20)
 {
 	this->ClapTrap::setName(_Name);
 	this->ClapTrap::setHitpoint(_Hitpoints);
@@ -23,6 +23,7 @@ ScavTrap::ScavTrap(void): _Name("ScavSilly"), _Hitpoints(100), _Energy_points(50
 
 ScavTrap::ScavTrap(std::string name): _Hitpoints(100), _Energy_points(50), _Attack_damage(20)
 {
+	this->_Name = name;
 	this->ClapTrap::setName(name);
 	this->ClapTrap::setHitpoint(_Hitpoints);
 	this->ClapTrap::setEnergy(_Energy_points);
