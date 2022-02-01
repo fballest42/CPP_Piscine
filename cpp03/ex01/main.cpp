@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 12:18:39 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/31 14:36:30 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/01 11:27:54 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,22 @@ int     main(void)
 
 	sicarioD = sicarioB;
 	std::cout << std::endl;
-	std::cout << "Los sicarios se crearion con:" << std::endl << "HIT POINTS = " << sicarioA.getHitpoint() << std::endl;
-	std::cout << "Los sicarios se crearion con:" << std::endl << "ENERGY POINTS = " << sicarioA.getEnergy() << std::endl;
-	std::cout << "Los sicarios se crearion con:" << std::endl << "ATTACK POINTS = " << sicarioA.getDamage() << std::endl;
+	std::cout << "Los sicarios se crearion con:" << std::endl << "HIT POINTS = " << sicarioA.ClapTrap::getHitpoint() << std::endl;
+	std::cout << "Los sicarios se crearion con:" << std::endl << "ENERGY POINTS = " << sicarioA.ClapTrap::getEnergy() << std::endl;
+	std::cout << "Los sicarios se crearion con:" << std::endl << "ATTACK POINTS = " << sicarioA.ClapTrap::getDamage() << std::endl;
 	sicarioA.attack(sicarioC.ClapTrap::getName());
-	sicarioC.takeDamage(43);
-	sicarioC.beRepaired(16);
+	sicarioC.ClapTrap::takeDamage(43);
+	sicarioC.ClapTrap::beRepaired(16);
 	std::cout << std::endl;
-	sicarioA.attack(sicarioB.getName());
-	sicarioB.takeDamage(32);
-	sicarioB.beRepaired(12);
+	sicarioA.attack(sicarioB.ClapTrap::getName());
+	sicarioB.ClapTrap::takeDamage(32);
+	sicarioB.ClapTrap::beRepaired(12);
 	std::cout << std::endl;
-	attackerC.ClapTrap::attack(sicarioA.getName());
-	sicarioA.takeDamage(25);
+	sicarioD.ClapTrap::attack(sicarioD.ClapTrap::getName());
+	sicarioD.ClapTrap::takeDamage(25);
+	sicarioD.ClapTrap::attack(sicarioD.ClapTrap::getName());
+	sicarioD.ClapTrap::takeDamage(5000);
+	sicarioD.ClapTrap::takeDamage(25);
 	std::cout << std::endl;
 	
 	return (0);

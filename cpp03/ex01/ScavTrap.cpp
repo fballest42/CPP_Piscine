@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:38:52 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/31 14:47:19 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/01 10:42:10 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ ScavTrap::ScavTrap(const ScavTrap &copy)
 	this->_Hitpoints = copy.getHitpoint();
 	this->_Energy_points = copy.getEnergy();
 	this->_Attack_damage = copy.getDamage();
+	this->setName(_Name);
+	this->setHitpoint(_Hitpoints);
+	this->setEnergy(_Energy_points);
+	this->setDamage(_Attack_damage);
 	std::cout << this->_Name << " ScavTrap has been constructed as a copy of " << copy.getName()
 			<< " and all his values." << std::endl;
 }

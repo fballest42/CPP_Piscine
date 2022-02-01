@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 11:17:56 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/31 14:24:29 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/01 11:26:27 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,18 @@ void ClapTrap::attack(std::string const &target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
+	unsigned int	Ini_Ene;
+	unsigned int	Ini_Hit;
+	if (this->getHitpoint() == 10 && this->getEnergy() == 10)
+	{
+		Ini_Hit = 10;
+		Ini_Ene = 10;
+	}
+	else if (this->getHitpoint() == 100 && this->getEnergy() == 50)
+	{
+		Ini_Hit = 100;
+		Ini_Ene = 50;
+	}
 	if (this->_Hitpoints <= 0 && this->_Energy_points <= 0)
 		std::cout << this->_Name << " has died long time ago. " 
 		<< "Please choose another ClapTrap to damage." << std::endl;
@@ -113,11 +125,12 @@ void ClapTrap::takeDamage(unsigned int amount)
 		this->setHitpoint(this->_Hitpoints - this->_Attack_damage);
 		if (this->getHitpoint() == 0)
 		{
-			this->setHitpoint(10);
+			this->setHitpoint(Ini_Hit);
 			this->setEnergy(this->_Energy_points - 1);
 		}
 		std::cout << this->_Name << " had received an attack of: " << this->_Attack_damage
-				<< " points. He hasn't got eneought Hitpoints or Energy points and died" << std::endl;
+				<< " points. Now he have " << this->_Hitpoints << " Hitpoints and " << this->_Energy_points
+				<< " points." << std::endl;
 	}
 	else
 	{
@@ -128,13 +141,12 @@ void ClapTrap::takeDamage(unsigned int amount)
 				<< " points and died because he has only " << this->_Hitpoints << " points." << std::endl;
 			this->setEnergy(0);
 			this->setHitpoint(0);
-			this->setDamage(0);
 		}
 		else if ((this->_Hitpoints + (this->_Energy_points * 10)) > amount)
 		{
 			this->setDamage(amount);
-			this->setHitpoint(((this->_Hitpoints + (this->_Energy_points * 10)) - amount) % 10);
-			this->setEnergy(((this->_Hitpoints + (this->_Energy_points * 10)) - amount) / 10);
+			this->setHitpoint(((this->_Hitpoints + (this->_Energy_points * Ini_Hit)) - amount) % Ini_Hit);
+			this->setEnergy(((this->_Hitpoints + (this->_Energy_points * Ini_Hit)) - amount) / Ini_Hit);
 			std::cout << this->_Name << " has received an attack of: " << this->_Attack_damage
 				<< " points. He had now " << this->_Hitpoints << " Hitpoints and " << this->_Energy_points
 				<< " Energy points." << std::endl;
@@ -145,26 +157,37 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	
+	unsigned int	Ini_Ene;
+	unsigned int	Ini_Hit;
+	if (this->getHitpoint() == 10 && this->getEnergy() == 10)
+	{
+		Ini_Hit = 10;
+		Ini_Ene = 10;
+	}
+	else if (this->getHitpoint() == 100 && this->getEnergy() == 50)
+	{
+		Ini_Hit = 100;
+		Ini_Ene = 50;
+	}
 	if (this->_Hitpoints <= 0 && this->_Energy_points <= 0)
 	{
-		if (floor(amount / 10) > 0)
-			this->setEnergy(floor(amount / 10));
-		this->setHitpoint((amount) % 10);
+		if (floor(amount / Ini_Ene) > 0)
+			this->setEnergy(floor(amount / Ini_Ene));
+		this->setHitpoint((amount) % Ini_Ene);
 		if (this->_Hitpoints == 0)
 		{
-			this->setHitpoint(10);
+			this->setHitpoint(Ini_Ene);
 			this->setEnergy(this->_Energy_points - 1);
 		}
 		std::cout << this->_Name << " has died long time ago. " 
 		<< "Please choose another ClapTrap to damage." << std::endl;
 	}
-	else if ((this->_Hitpoints + amount) <= 10)
+	else if ((this->_Hitpoints + amount) <= Ini_Hit)
 		this->setHitpoint(this->_Hitpoints + amount);
 	else
 	{
-		this->setEnergy(((this->_Hitpoints + (this->_Energy_points * 10)) + amount) / 10);
-		this->setHitpoint(((this->_Hitpoints + (this->_Energy_points * 10)) + amount) % 10);
+		this->setEnergy(((this->_Hitpoints + (this->_Energy_points * Ini_Hit)) + amount) / Ini_Hit);
+		this->setHitpoint(((this->_Hitpoints + (this->_Energy_points * Ini_Hit)) + amount) % Ini_Hit);
 	}
 	std::cout << this->_Name << " has received a reparation of: " << amount
 		<< " and now he has: " << this->_Hitpoints << " Hitpoints and " << this->_Energy_points << " Energy points."
