@@ -6,12 +6,13 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 12:18:39 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/01 11:47:47 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/01 12:13:00 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ClapTrap.hpp"
 #include"ScavTrap.hpp"
+#include"FrapTrap.hpp"
 
 int     main(void)
 {
