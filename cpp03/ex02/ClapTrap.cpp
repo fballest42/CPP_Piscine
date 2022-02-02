@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 11:17:56 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/02 11:06:01 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/02 13:59:09 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,13 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &equal)
 {
 	std::cout << this->getName() << " Has his name and values equal to " << equal.getName()
 			<< " values." << std::endl;
-	if (this == &equal)
-		return (*this);
+	if (this != &equal)
+	{
+		this->setName(equal.getName());
+		this->setHitpoint(equal.getHitpoint());
+		this->setEnergy(equal.getEnergy());
+		this->setDamage(equal.getDamage());
+	}
 	return (*this);
 }
 

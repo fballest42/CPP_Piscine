@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:33:16 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/02 11:32:53 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/02 13:11:20 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include"ClapTrap.hpp"
 
-class ScavTrap : public virtual ClapTrap
+class ScavTrap : virtual public ClapTrap
 {	
 	public:
 		ScavTrap(void);

@@ -6,16 +6,16 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:33:16 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/02 11:31:13 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/02 13:20:38 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAPTRAP_H
-# define FRAPTRAP_H
+#ifndef FRAGTRAP_H
+# define FRAGTRAP_H
 
 # include"ClapTrap.hpp"
 
-class FragTrap : public virtual ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 private:
 	std::string		_Name;

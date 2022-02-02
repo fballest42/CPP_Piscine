@@ -6,32 +6,29 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 13:10:22 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/01 14:07:20 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/02 13:20:09 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAPTRAP_H
-# define FRAPTRAP_H
+#ifndef DIAMONDTRAP_H
+# define DIAMONDTRAP_H
 
 # include"FragTrap.hpp"
 # include"ScavTrap.hpp"
+# include"ClapTrap.hpp"
 
-class DiamondTrap : public FragTrap , public ScavTrap 
+class DiamondTrap : public ScavTrap , public FragTrap 
 {
-private:
-	std::string		_Name;
-	unsigned int	_Hitpoints;
-	unsigned int	_Energy_points;
-	unsigned int	_Attack_damage;
-	unsigned int	_attack;
-	
-public:
-	DiamondTrap(void);
-	DiamondTrap(const DiamondTrap &copy);
-	DiamondTrap(const std::string name);
-	~DiamondTrap(void);
-	DiamondTrap& operator=(const DiamondTrap &equal);
-	void whoAmI(void);
+	private:
+		std::string		_Name;
+	public:
+		DiamondTrap(void);
+		DiamondTrap(const DiamondTrap &copy);
+		DiamondTrap(const std::string name);
+		~DiamondTrap(void);
+		DiamondTrap& operator=(const DiamondTrap &equal);
+		void 	whoAmI(void);
+		void	attack(std::string &name);
 };
 
 #endif

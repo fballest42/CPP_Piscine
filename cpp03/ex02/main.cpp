@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 12:18:39 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/02 11:18:13 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/02 12:47:48 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ int     main(void)
 	ScavTrap	sicarioD("NoKario");
 
 	sicarioD = sicarioB;
-	std::cout << "Nokario ahora se llama ---> " << sicarioD.ClapTrap::getName() << std::endl; 
+	std::cout << "Nokario ahora se llama ---> " << sicarioD.getName() << std::endl; 
 	
 	std::cout << std::endl;
-	std::cout << "Los sicarios se crearon con: NAME = " << sicarioA.ClapTrap::getName() << std::endl;
-	std::cout << "Los sicarios se crearon con: HIT POINTS = " << sicarioA.ClapTrap::getHitpoint() << std::endl;
+	std::cout << "Los sicarios se crearon con: NAME = " << sicarioA.getName() << std::endl;
+	std::cout << "Los sicarios se crearon con: HIT POINTS = " << sicarioA.getHitpoint() << std::endl;
 	std::cout << "Los sicarios se crearon con: ENERGY POINTS = " << sicarioA.ClapTrap::getEnergy() << std::endl;
 	std::cout << "Los sicarios se crearon con: ATTACK POINTS = " << sicarioA.ClapTrap::getDamage() << std::endl;
 	std::cout << "Los sicarios se crearon con: NAME = " << sicarioB.ClapTrap::getName() << std::endl;

@@ -6,15 +6,15 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/02/01 13:34:36 by fballest         ###   ########.fr        #
+#    Updated: 2022/02/02 13:02:57 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # FILE NAME
-NAME = FragTrap
+NAME = DiamondTrap
 
 # SOURCES AND OBJECTS
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION

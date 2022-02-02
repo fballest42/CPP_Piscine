@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:38:52 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/02 11:29:02 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/02 13:58:40 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,15 @@ ScavTrap::ScavTrap(const ScavTrap &copy)
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &equal)
 {
-	this->setName(equal.getName());
-	this->setHitpoint(equal.getHitpoint());
-	this->setEnergy(equal.getEnergy());
-	this->setDamage(equal.getDamage());
-	std::cout << this->getName() << " is going to tahe the name and values equal to " << equal.getName()
+	std::cout << this->getName() << " Has his name and values equal to " << equal.getName()
 			<< " values." << std::endl;
+	if (this != &equal)
+	{
+		this->setName(equal.getName());
+		this->setHitpoint(equal.getHitpoint());
+		this->setEnergy(equal.getEnergy());
+		this->setDamage(equal.getDamage());
+	}
 	return (*this);
 }
 
