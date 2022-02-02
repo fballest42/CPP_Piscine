@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 12:18:39 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/31 11:58:07 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/02 10:47:56 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int     main(void)
 	attackerC.takeDamage(10);
 	attackerC.beRepaired(3);
 	attackerD.attack(attackerC.getName());
-	attackerC.takeDamage(105);
+	attackerC.takeDamage(9);
 	attackerC.takeDamage(10);
 	attackerD.attack(attackerA.getName());
-	attackerA.takeDamage(29);
+	attackerA.takeDamage(5);
 	attackerA.beRepaired(8);
 	attackerA.attack(attackerC.getName());
-	attackerC.beRepaired(75);
+	attackerC.beRepaired(5);
 	
 	return (0);
 }

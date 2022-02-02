@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:38:52 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/01 15:43:28 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/02 11:05:01 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,40 @@
 
 ScavTrap::ScavTrap(void)
 {
-	this->ClapTrap::setName("ScavSilly");
-	this->ClapTrap::setHitpoint(100);
-	this->ClapTrap::setEnergy(50);
-	this->ClapTrap::setDamage(20);
-	std::cout << ClapTrap::getName() << " ScavTrap has been constructed with a silly name." << std::endl;
+	this->setName("ScavSilly");
+	this->setHitpoint(100);
+	this->setEnergy(50);
+	this->setDamage(20);
+	std::cout << this->getName() << " ScavTrap has been constructed with a silly name." << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
-	this->ClapTrap::setName("ScavSilly");
-	this->ClapTrap::setHitpoint(100);
-	this->ClapTrap::setEnergy(50);
-	this->ClapTrap::setDamage(20);
-	std::cout << ClapTrap::getName() << " ScavTrap has been constructed." << std::endl;
+	this->setName(name);
+	this->setHitpoint(100);
+	this->setEnergy(50);
+	this->setDamage(20);
+	std::cout << this->getName() << " ScavTrap has been constructed." << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &copy)
 {
-	this->ClapTrap::setName(copy.ClapTrap::getName());
-	this->ClapTrap::setHitpoint(copy.ClapTrap::getHitpoint());
-	this->ClapTrap::setEnergy(copy.ClapTrap::getEnergy());
-	this->ClapTrap::setDamage(copy.ClapTrap::getDamage());
-	std::cout << this->ClapTrap::getName() << " ScavTrap has been constructed as a copy of " << copy.ClapTrap::getName()
+	this->setName(copy.getName());
+	this->setHitpoint(copy.getHitpoint());
+	this->setEnergy(copy.getEnergy());
+	this->setDamage(copy.getDamage());
+	std::cout << this->getName() << " ScavTrap has been constructed as a copy of " << copy.getName()
 			<< " and all his values." << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &equal)
 {
-	std::cout << this->_Name << " Has his name and values equal to " << equal.getName()
+	this->setName(equal.getName());
+	this->setHitpoint(equal.getHitpoint());
+	this->setEnergy(equal.getEnergy());
+	this->setDamage(equal.getDamage());
+	std::cout << this->getName() << " is going to tahe the name and values equal to " << equal.getName()
 			<< " values." << std::endl;
-	if (this = &equal)
-		return (*this);
 	return (*this);
 }
 
@@ -56,10 +58,10 @@ ScavTrap::~ScavTrap(void)
 
 void ScavTrap::attack(std::string const &target)
 {
-	std::cout << this->_Name << " ScavTrap attack to " << target << "." << std::endl;
+	std::cout << this->getName() << " ScavTrap attack to " << target << "." << std::endl;
 }
 
 void ScavTrap::guardGate(void)
 {
-	std::cout << "ScavTrap " << this->_Name << " has entered into the Gate keeper mode.";
+	std::cout << "ScavTrap " << this->getName() << " has entered into the Gate keeper mode.";
 }

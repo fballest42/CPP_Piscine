@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 12:18:39 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/01 11:45:56 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/02 11:02:23 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int     main(void)
 	ScavTrap	sicarioD("NoKario");
 
 	sicarioD = sicarioB;
+	std::cout << "Nokario ahora se llama ---> " << sicarioD.ClapTrap::getName() << std::endl; 
 	
 	std::cout << std::endl;
 	std::cout << "Los sicarios se crearon con: NAME = " << sicarioA.ClapTrap::getName() << std::endl;
@@ -75,13 +76,13 @@ int     main(void)
 	sicarioB.ClapTrap::takeDamage(32);
 	sicarioB.ClapTrap::beRepaired(12);
 	std::cout << std::endl;
-	sicarioD.ClapTrap::attack(sicarioD.ClapTrap::getName());
+	sicarioC.ClapTrap::attack(sicarioD.ClapTrap::getName());
 	sicarioD.ClapTrap::takeDamage(25);
 	std::cout << std::endl;
-	sicarioD.ClapTrap::attack(sicarioD.ClapTrap::getName());
-	sicarioD.ClapTrap::takeDamage(5000);
+	sicarioC.ClapTrap::attack(sicarioD.ClapTrap::getName());
+	sicarioD.ClapTrap::takeDamage(50);
 	std::cout << std::endl;
-	sicarioD.ClapTrap::attack(sicarioD.ClapTrap::getName());
+	sicarioC.ClapTrap::attack(sicarioD.ClapTrap::getName());
 	sicarioD.ClapTrap::takeDamage(25);
 	std::cout << std::endl;
 	
