@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 13:05:04 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/02 14:00:19 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/02 15:07:07 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &equal)
 		this->setEnergy(equal.getEnergy());
 		this->setDamage(equal.getDamage());
 	}
-	return (*this);
 	return (*this);
 }
 

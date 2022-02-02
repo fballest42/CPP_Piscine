@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:38:52 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/02 14:01:02 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/02 15:05:50 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &equal)
 		this->setEnergy(equal.getEnergy());
 		this->setDamage(equal.getDamage());
 	}
-	return (*this);
 	return (*this);
 }
 
