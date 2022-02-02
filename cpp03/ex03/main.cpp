@@ -6,14 +6,13 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 12:18:39 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/01 15:27:18 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/02 11:18:13 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ClapTrap.hpp"
 #include"ScavTrap.hpp"
 #include"FragTrap.hpp"
-#include"DiamondTrap.hpp"
 
 int     main(void)
 {
@@ -50,6 +49,7 @@ int     main(void)
 	ScavTrap	sicarioD("NoKario");
 
 	sicarioD = sicarioB;
+	std::cout << "Nokario ahora se llama ---> " << sicarioD.ClapTrap::getName() << std::endl; 
 	
 	std::cout << std::endl;
 	std::cout << "Los sicarios se crearon con: NAME = " << sicarioA.ClapTrap::getName() << std::endl;
@@ -77,13 +77,13 @@ int     main(void)
 	sicarioB.ClapTrap::takeDamage(32);
 	sicarioB.ClapTrap::beRepaired(12);
 	std::cout << std::endl;
-	sicarioD.ClapTrap::attack(sicarioD.ClapTrap::getName());
+	sicarioC.ClapTrap::attack(sicarioD.ClapTrap::getName());
 	sicarioD.ClapTrap::takeDamage(25);
 	std::cout << std::endl;
-	sicarioD.ClapTrap::attack(sicarioD.ClapTrap::getName());
-	sicarioD.ClapTrap::takeDamage(5000);
+	sicarioC.ClapTrap::attack(sicarioD.ClapTrap::getName());
+	sicarioD.ClapTrap::takeDamage(50);
 	std::cout << std::endl;
-	sicarioD.ClapTrap::attack(sicarioD.ClapTrap::getName());
+	sicarioC.ClapTrap::attack(sicarioD.ClapTrap::getName());
 	sicarioD.ClapTrap::takeDamage(25);
 	std::cout << std::endl;
 
@@ -92,7 +92,25 @@ int     main(void)
 	FragTrap	GivemeC(GivemeA);
 	FragTrap	GivemeD("Adiosito");
 
-	GivemeA = GivemeB;
+	GivemeD = GivemeB;
+	std::cout << "Adiosito ahora se llama " << GivemeD.getName() << std::endl << std::endl;
+
+	std::cout << "Los FragTrap se crearon con: NAME = " << GivemeA.getName() << std::endl;
+	std::cout << "Los FragTrap se crearon con: HIT POINTS = " << GivemeA.getHitpoint() << std::endl;
+	std::cout << "Los FragTrap se crearon con: ENERGY POINTS = " << GivemeA.getEnergy() << std::endl;
+	std::cout << "Los FragTrap se crearon con: ATTACK POINTS = " << GivemeA.getDamage() << std::endl;
+	std::cout << "Los FragTrap se crearon con: NAME = " << GivemeB.getName() << std::endl;
+	std::cout << "Los FragTrap se crearon con: HIT POINTS = " << GivemeB.getHitpoint() << std::endl;
+	std::cout << "Los FragTrap se crearon con: ENERGY POINTS = " << GivemeB.getEnergy() << std::endl;
+	std::cout << "Los FragTrap se crearon con: ATTACK POINTS = " << GivemeB.getDamage() << std::endl;
+	std::cout << "Los FragTrap se crearon con: NAME = " << GivemeC.getName() << std::endl;
+	std::cout << "Los FragTrap se crearon con: HIT POINTS = " << GivemeC.getHitpoint() << std::endl;
+	std::cout << "Los FragTrap se crearon con: ENERGY POINTS = " << GivemeC.getEnergy() << std::endl;
+	std::cout << "Los FragTrap se crearon con: ATTACK POINTS = " << GivemeC.getDamage() << std::endl;
+	std::cout << "Los FragTrap se crearon con: NAME = " << GivemeD.getName() << std::endl;
+	std::cout << "Los FragTrap se crearon con: HIT POINTS = " << GivemeD.getHitpoint() << std::endl;
+	std::cout << "Los FragTrap se crearon con: ENERGY POINTS = " << GivemeD.getEnergy() << std::endl;
+	std::cout << "Los FragTrap se crearon con: ATTACK POINTS = " << GivemeD.getDamage() << std::endl;
 	
 	std::cout << std::endl;
 	GivemeA.highFivesGuys();
@@ -101,19 +119,5 @@ int     main(void)
 	GivemeD.highFivesGuys();
 	std::cout << std::endl;
 	
-	DiamondTrap		MonsterA;
-	DiamondTrap		MonsterB("MUMMY");
-	DiamondTrap		MonsterC(MonsterA);
-	DiamondTrap		MonsterD("GHOST");
-
-	// MonsterA = MonsterB;
-	std::cout << std::endl;
-	std::cout << "NAME: " << MonsterA.getName() << std::endl;
-	std::cout << "CLAP_NAME: " << MonsterA.ClapTrap::getName() << std::endl;
-	std::cout << "HITPOINTS: " << MonsterA.getHitpoint() << std::endl;
-	std::cout << "ENERGY: " << MonsterA.getEnergy() << std::endl;
-	std::cout << "ATTACK DAMAGE: " << MonsterA.getDamage() << std::endl;
-	std::cout << "attack: " << MonsterA.getDamage() << std::endl;
-	std::cout << std::endl; 
 	return (0);
 }
