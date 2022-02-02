@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:38:52 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/02 13:28:04 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/02 15:32:21 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,14 @@ FragTrap::FragTrap(const FragTrap &copy)
 
 FragTrap &FragTrap::operator=(const FragTrap &equal)
 {
-	std::cout << this->getName() << " Has his name and values equal to " << equal.getName()
-			<< " values." << std::endl;
-	if (this == &equal)
-		return (*this);
-	return (*this);
+
+	if (this != &equal)
+	{
+		this->setName(equal.getName());
+		this->setHitpoint(equal.getHitpoint());
+		this->setEnergy(equal.getEnergy());
+		this->setDamage(equal.getDamage());
+	}
 	return (*this);
 }
 

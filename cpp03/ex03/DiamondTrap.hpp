@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 13:10:22 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/02 13:20:09 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/02 15:37:32 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class DiamondTrap : public ScavTrap , public FragTrap
 		~DiamondTrap(void);
 		DiamondTrap& operator=(const DiamondTrap &equal);
 		void 	whoAmI(void);
-		void	attack(std::string &name);
+		void 	attack(std::string const & target);
 };
 
 #endif
