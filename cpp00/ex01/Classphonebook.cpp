@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:26:59 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/17 14:26:07 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/18 11:57:33 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,23 +73,24 @@ void	Phonebook::search_contact(void)
 {
 	std::string		data;
 	int				i = 0;
-	std::cout << "* HERE IS YOUR CURRENT PHONEBOOK'S CONTACTS *" << std::endl;
-	std::cout << "=============================================" << std::endl;
+	std::cout << "* HERE IS YOUR CURRENT PHONEBOOK'S CONTACTS *" << std::endl << std::endl;
+	std::cout << std::setfill('=') << std::setw(45) << '=' << std::endl;
 	std::cout << "|   INDEX  |FIRST NAME| LAST NAME| NICKNAME |" << std::endl;
-	std::cout << "=============================================" << std::endl;
-	while (i < this->_index)
+	std::cout << std::setfill('=') << std::setw(45) << '=' << std::endl;
+	while (i < this->_index && i < 8)
 	{
-		std::cout << "|" << "         " << i << "|";
+		std::cout << "|" << std::setfill(' ') << std::setw(10) << i << "|" ;
 		data = this->_Contacts[i].get_name();
-		data = size_data(data);
-		std::cout << data << "|";
+		std::cout << data << std::setw(10) << "|";
+		//data = size_data(data);
+		//std::cout << data << "|";
 		data = this->_Contacts[i].get_lastname();
 		data = size_data(data);
 		std::cout << data << "|";
 		data = this->_Contacts[i].get_nickname();
 		data = size_data(data);
 		std::cout << data << "|";
-		std::cout << std::endl << "=============================================" << std::endl;
+		std::cout << std::endl << std::setfill('=') << std::setw(45) << '=' << std::endl;;
 		i++;
 	}
 	std::cout << "Which index contact do you wnat to see? : ";
@@ -105,5 +106,5 @@ void	Phonebook::search_contact(void)
 		std::cout << "DRAKEST SECRET: " << this->_Contacts[i].get_dark() << std::endl;
 	}
 	else
-		std::cout << "**** INDEX NUMBER DON'T EXIT IN THE PHONEBOOK ****" << std::endl;
+		std::cout << "****** INDEX NUMBER ISN'T IN THE PHONEBOOK ******" << std::endl;
 }
