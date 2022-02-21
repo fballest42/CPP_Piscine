@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:26:59 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/18 11:57:33 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/21 12:14:32 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,8 @@ void	Phonebook::search_contact(void)
 	{
 		std::cout << "|" << std::setfill(' ') << std::setw(10) << i << "|" ;
 		data = this->_Contacts[i].get_name();
-		std::cout << data << std::setw(10) << "|";
-		//data = size_data(data);
-		//std::cout << data << "|";
+		data = size_data(data);
+		std::cout << data << "|";
 		data = this->_Contacts[i].get_lastname();
 		data = size_data(data);
 		std::cout << data << "|";
@@ -93,12 +92,15 @@ void	Phonebook::search_contact(void)
 		std::cout << std::endl << std::setfill('=') << std::setw(45) << '=' << std::endl;;
 		i++;
 	}
-	std::cout << "Which index contact do you wnat to see? : ";
+	while (i )
+	std::cout << "Which index contact do you want to see? : ";
 	std::cin >> i;
 	std::cin.ignore(255, '\n');
-	if (i < this->_index && i >= 0 && i < 8)
+	if (i < this->_index && i >= 48 && i < 57)
 	{
-		std::cout << "******** HERE IS YOUR CONTACT INFORMATION ********" << std::endl;
+		std::cout << std::setfill('*') << std::setw(6) << '*';
+		std::cout << " HERE IS YOUR CONTACT INFORMATION ";
+		std::cout << std::setfill('*') << std::setw(6) << '*' << std::endl;
 		std::cout << "FIRST NAME: " << this->_Contacts[i].get_name() << std::endl;
 		std::cout << "LAST NAME: " << this->_Contacts[i].get_lastname() << std::endl;
 		std::cout << "NICKNAME: " << this->_Contacts[i].get_nickname() << std::endl;
@@ -106,5 +108,9 @@ void	Phonebook::search_contact(void)
 		std::cout << "DRAKEST SECRET: " << this->_Contacts[i].get_dark() << std::endl;
 	}
 	else
+	{
+		std::cout << std::setfill('*') << std::setw(8) << '*';
 		std::cout << "****** INDEX NUMBER ISN'T IN THE PHONEBOOK ******" << std::endl;
+		std::cout << std::setfill('*') << std::setw(8) << '*' << std::endl;
+	}
 }
