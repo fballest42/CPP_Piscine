@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:14:06 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/24 10:29:34 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/22 14:31:52 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ std::string		check_line(std::string line, std::string s1, std::string s2)
 	pos_s2 = line.find(s2);
 	while (pos_s1 < len || pos_s2 < len)
 	{
-		if (pos_s1 < pos_s2)
+		if (pos_s1 != -1 && pos_s1 < pos_s2)
 			line = change_line(line, s1, pos_s1, '_');
-		else if (pos_s2 < pos_s1)
+		else if (pos_s2 != -1 && pos_s2 < pos_s1)
 			line = change_line(line, s2, pos_s2, '*');
 		if ((pos_s1 = line.find(s1)) == std::string::npos)
 			pos_s1 = len;
