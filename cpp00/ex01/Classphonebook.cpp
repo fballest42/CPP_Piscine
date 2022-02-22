@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 11:26:59 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/21 12:14:32 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/22 12:09:50 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void		Phonebook::add_contact(void)
 	std::getline (std::cin, data);
 	this->_Contacts[this->_index % 8].set_dark(data);
 	this->_index++;
-	std::cout << "***************** NEW CONTACT ADDED *****************" << std::endl;
+	std::cout << "************* NEW CONTACT ADDED *************" << std::endl;
 }
 
 std::string		Phonebook::size_data(std::string data)
@@ -75,7 +75,7 @@ void	Phonebook::search_contact(void)
 	int				i = 0;
 	std::cout << "* HERE IS YOUR CURRENT PHONEBOOK'S CONTACTS *" << std::endl << std::endl;
 	std::cout << std::setfill('=') << std::setw(45) << '=' << std::endl;
-	std::cout << "|   INDEX  |FIRST NAME| LAST NAME| NICKNAME |" << std::endl;
+	std::cout << "|   INDEX  |FIRST NAME| LASTNAME | NICKNAME |" << std::endl;
 	std::cout << std::setfill('=') << std::setw(45) << '=' << std::endl;
 	while (i < this->_index && i < 8)
 	{
@@ -92,11 +92,10 @@ void	Phonebook::search_contact(void)
 		std::cout << std::endl << std::setfill('=') << std::setw(45) << '=' << std::endl;;
 		i++;
 	}
-	while (i )
 	std::cout << "Which index contact do you want to see? : ";
 	std::cin >> i;
 	std::cin.ignore(255, '\n');
-	if (i < this->_index && i >= 48 && i < 57)
+	if (i < this->_index)
 	{
 		std::cout << std::setfill('*') << std::setw(6) << '*';
 		std::cout << " HERE IS YOUR CONTACT INFORMATION ";
@@ -108,9 +107,5 @@ void	Phonebook::search_contact(void)
 		std::cout << "DRAKEST SECRET: " << this->_Contacts[i].get_dark() << std::endl;
 	}
 	else
-	{
-		std::cout << std::setfill('*') << std::setw(8) << '*';
-		std::cout << "****** INDEX NUMBER ISN'T IN THE PHONEBOOK ******" << std::endl;
-		std::cout << std::setfill('*') << std::setw(8) << '*' << std::endl;
-	}
+		std::cout << "**** INDEX NUMBER ISN'T IN THE PHONEBOOK ****" << std::endl;
 }

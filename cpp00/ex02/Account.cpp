@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 09:41:34 by fballest          #+#    #+#             */
-/*   Updated: 2022/01/19 13:17:22 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/22 12:16:42 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ void	Account::displayStatus( void ) const
 	_displayTimestamp();
 	std::cout << " index:" << this->_accountIndex << ";amount:"
 			<< this->_amount << ";deposits:" << this->_nbDeposits
-			<< ";withdrawls:" << this->_nbWithdrawals << std::endl;	
+			<< ";withdrawals:" << this->_nbWithdrawals << std::endl;	
 }
 
 void	Account::_displayTimestamp( void )
