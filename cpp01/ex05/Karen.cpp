@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 10:59:43 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/22 14:54:38 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/23 12:05:12 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,15 @@ void	Karen::warning( void )
 			<< "you just started working here last month." << std::endl;
 }
 
+void	Karen::error( void )
+{
+	std::cout << "This is unacceptable, I want to speak to the manager now." << std::endl;
+}
+
 void	Karen::complain(std::string msg)
 {
 	std::string	msgs[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-		
+
 	funtion[0] = &Karen::debug;
 	funtion[1] = &Karen::info;
 	funtion[2] = &Karen::warning;
