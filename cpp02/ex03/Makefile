@@ -6,7 +6,7 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/02/24 09:57:37 by fballest         ###   ########.fr        #
+#    Updated: 2022/02/24 10:58:22 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = Fixed
 
 # SOURCES AND OBJECTS
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION

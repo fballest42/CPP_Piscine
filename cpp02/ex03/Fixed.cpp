@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 14:58:59 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/24 10:26:15 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:28:01 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,37 @@
 
 Fixed::Fixed(void): _num(0)
 {
-	std::cout << "Default constructor called." << std::endl;
+	// std::cout << "Default constructor called." << std::endl;
 }
 
 Fixed::Fixed(Fixed const &copy)
 {
-	std::cout << "Copy contructor called." << std::endl;
+	// std::cout << "Copy contructor called." << std::endl;
 	this->_num = copy.getRawBits();
 }
 
 Fixed::Fixed(const int i)
 {
-	std::cout << "Int constructor called." << std::endl;
+	// std::cout << "Int constructor called." << std::endl;
 	this->_num = (i << this->_snum);
 }
 
 Fixed::Fixed(const float flo)
 {
-	std::cout << "Float constructor called." << std::endl;
+	// std::cout << "Float constructor called." << std::endl;
 	this->_num = roundf(float(flo * (1 << this->_snum)));
 }
 
 Fixed &Fixed::operator=(const Fixed &fixed)
 {
-	std::cout << "Assignation operator called." << std::endl;
+	// std::cout << "Assignation operator called." << std::endl;
 	this->_num = fixed.getRawBits();
 	return (*this);
 }
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructor called." << std::endl;
+	// std::cout << "Destructor called." << std::endl;
 }
 
 // MEMBER FUNTIONS. //
@@ -214,7 +214,6 @@ Fixed &Fixed::operator--(void)
 }
 
 // MIN AND MAX MEMBER FUNTIONS. //
-
 
 const Fixed	&Fixed::min(const Fixed &ca, const Fixed &cb)
 {

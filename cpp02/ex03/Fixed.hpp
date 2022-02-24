@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 14:59:21 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/24 10:23:03 by fballest         ###   ########.fr       */
+/*   Updated: 2022/02/24 10:27:41 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ public:
 	Fixed(const Fixed &copy);
 	Fixed(const int i);
 	Fixed(const float flo);
+	~Fixed(void);
 	Fixed& operator=(const Fixed &fixed);
+	
 	bool operator>(const Fixed &fixed) const;
 	bool operator<(const Fixed &fixed) const;
 	bool operator>=(const Fixed &fixed) const;
@@ -42,7 +44,7 @@ public:
 	Fixed operator--(int);
 	Fixed &operator++(void);
 	Fixed &operator--(void);
-	~Fixed(void);
+
 	int		getRawBits(void) const;
 	void	setRawBits (int const raw);
 	float	toFloat(void) const;

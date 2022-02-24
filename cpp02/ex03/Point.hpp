@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 14:59:21 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/24 10:14:21 by fballest         ###   ########.fr       */
+/*   Created: 2022/02/24 10:30:57 by fballest          #+#    #+#             */
+/*   Updated: 2022/02/24 13:26:33 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-# define FIXED_H
+#ifndef POINT_H
+# define POINT_H
 
 #include <iostream>
 #include <string>
 #include <cmath>
+#include "Fixed.hpp"
 
-class Fixed
+class   Point
 {
-private:
-	int					_num;
-	static const int	_snum = 8;
-public:
-	Fixed(void);
-	Fixed(Fixed const &copy);
-	Fixed(const int i);
-	Fixed(const float flo);
-	Fixed& operator=(Fixed const &fixed);
-	~Fixed(void);
-	int		getRawBits(void) const;
-	void	setRawBits (int const raw);
-	float	toFloat(void) const;
-	int		toInt(void) const;
+	private:
+		Fixed	_x;
+		Fixed	_y;
+
+	public:
+		Point(void);
+		Point(const Point &copy);
+		Point(float x, float y);
+		Point& operator=(const Point &equal);
+		~Point(void);
+
+		Fixed	getX(void) const;
+		void	setX(Fixed x);
+		Fixed	getY(void) const;
+		void	setY(Fixed y);
 };
-std::ostream& operator<<(std::ostream &ret, Fixed const &newop);
+
+bool	bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif
