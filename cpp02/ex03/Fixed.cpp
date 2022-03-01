@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 14:58:59 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/24 13:28:01 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/01 10:47:54 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ Fixed::Fixed(const float flo)
 Fixed &Fixed::operator=(const Fixed &fixed)
 {
 	// std::cout << "Assignation operator called." << std::endl;
+	if (this == &fixed)
+        return (*this);
 	this->_num = fixed.getRawBits();
 	return (*this);
 }
@@ -92,57 +94,27 @@ bool Fixed::operator>(const Fixed &fixed) const
 
 bool Fixed::operator<(const Fixed &fixed) const
 {
-	float		a, b;
-	a = toFloat();
-	b = fixed.toFloat();
-
-	if (a < b)
-		return (true);
-	return (false);
+	return (this->getRawBits() < fixed.getRawBits());
 }
 
 bool Fixed::operator>=(const Fixed &fixed) const
 {
-	float		a, b;
-	a = toFloat();
-	b = fixed.toFloat();
-
-	if (a >= b)
-		return (true);
-	return (false);
+	return (this->getRawBits() >= fixed.getRawBits());
 }
 
 bool Fixed::operator<=(const Fixed &fixed) const
 {
-	float		a, b;
-	a = toFloat();
-	b = fixed.toFloat();
-
-	if (a <= b)
-		return (true);
-	return (false);
+	return (this->getRawBits() <= fixed.getRawBits());
 }
 
 bool Fixed::operator==(const Fixed &fixed) const
 {
-	float		a, b;
-	a = toFloat();
-	b = fixed.toFloat();
-
-	if (a == b)
-		return (true);
-	return (false);
+	return (this->getRawBits() == fixed.getRawBits());
 }
 
 bool Fixed::operator!=(const Fixed &fixed) const
 {
-	float		a, b;
-	a = toFloat();
-	b = fixed.toFloat();
-
-	if (a != b)
-		return (true);
-	return (false);
+	return !(this->getRawBits() == fixed.getRawBits());
 }
 
 // ARITMETICAL MEMBER FUNTIONS. //
@@ -150,7 +122,7 @@ bool Fixed::operator!=(const Fixed &fixed) const
 Fixed Fixed::operator+(const Fixed &fixed) const
 {
 	float		a, b;
-	a = toFloat();
+	a = this->toFloat();
 	b = fixed.toFloat();
 	Fixed	res(float(a + b));
 	return (res);
@@ -159,7 +131,7 @@ Fixed Fixed::operator+(const Fixed &fixed) const
 Fixed Fixed::operator-(const Fixed &fixed) const
 {
 	float		a, b;
-	a = toFloat();
+	a = this->toFloat();
 	b = fixed.toFloat();
 	Fixed	res(a - b);
 	return (res);
@@ -177,7 +149,7 @@ Fixed Fixed::operator*(const Fixed &fixed) const
 Fixed Fixed::operator/(const Fixed &fixed) const
 {
 	float		a, b;
-	a = toFloat();
+	a = this->toFloat();
 	b = fixed.toFloat();
 	Fixed	res(a / b);
 	return (res);

@@ -6,12 +6,12 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/02/24 10:58:22 by fballest         ###   ########.fr        #
+#    Updated: 2022/03/01 11:04:42 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # FILE NAME
-NAME = Fixed
+NAME = bsq
 
 # SOURCES AND OBJECTS
 SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp

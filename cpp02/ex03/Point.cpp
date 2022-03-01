@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:37:15 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/24 13:57:16 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/01 10:49:05 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Point::Point(void): _x(0), _y(0)
 	// std::cout << "Default constructor called, and values set to 0" << std::endl;
 }
 
-Point::Point(const Point &copy)
+Point::Point(const Point &copy): _x(copy._x), _y(copy._y)
 {
 	// std::cout << "Copy consturctor called" << std::endl;
 }

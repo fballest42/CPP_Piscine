@@ -6,11 +6,12 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:56:40 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/24 13:58:55 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/01 11:01:48 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
+#include "Fixed.hpp"
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point)
 {
@@ -25,29 +26,29 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 	Fixed	x = mAC * point.getX() + kAC - point.getY();
 	Fixed	y = mCB * point.getX() + kCB - point.getY();
 	Fixed	z = mBA * point.getX() + kBA < point.getY();
-	
-	
-	std::cout << "mAC = " << mAC.toFloat() << " mCB = " << mCB.toFloat() << " mBA = " << mBA.toFloat() << std::endl;
-	std::cout << "kAC = " << kAC.toFloat() << " kCB = " << kCB.toFloat() << " kBA = " << kBA.toFloat() << std::endl;
-	std::cout << "X = " << x.toFloat() << " Y = " << y.toFloat() << " Z = " << z.toFloat() << std::endl;
-
+		
 	if (x > 0)
-		return (true);
+		return (false);
 	if (y < 0)
-		return (true);
+		return (false);
 	if (z < 0)
-		return (true);
-	return (false);
+		return (false);
+	return (true);
 }
 
-// {
-// 	Point   D((b.getXX() - a.getXX()), (b.getYY() - a.getYY()));
-// 	Point   E((c.getXX() - a.getXX()), (c.getYY() - a.getYY()));
 
+// {
+// 	Point   D;
+// 	Point   E;
+// 	D.setX(b.getX() - a.getX());
+// 	D.setY(b.getY() - a.getY());
+// 	E.setX((c.getX() - a.getX()));
+// 	E.setY((c.getY() - a.getY()));
 // 	Fixed   w1((E.getX() * (a.getY() + point.getY()) + E.getY() * (point.getX() - a.getX()))
 // 				/ ((D.getX() * E.getY()) - (D.getY() * E.getX())));
+// 	std::cout << "ESTE W1 = " << w1.toFloat() << std::endl;
 // 	Fixed   w2((Fixed(1) / E.getY()) * (point.getY() - a.getY() - (w1 * D.getY())));
-
+// 	std::cout << "ESTE W2 = " << w2.toFloat() << std::endl;
 // 	if (w1 >= 0)
 // 		return(true);
 // 	if (w2 >= 0)
@@ -56,4 +57,11 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 // 		return(true);
 // 	return (false);
 // }
+
+
+
+
+
+
+
 

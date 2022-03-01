@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:30:57 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/24 13:26:33 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/01 10:35:09 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ class   Point
 		Fixed	getY(void) const;
 		void	setY(Fixed y);
 };
-
 bool	bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif
