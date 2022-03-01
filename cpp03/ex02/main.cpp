@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 12:18:39 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/02 12:47:48 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/01 13:13:28 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,23 @@ int     main(void)
 	ClapTrap	attackerC("Genuine");
 	
 	attackerC = attackerB;
+
+	std::cout << "Los ClapTrap se crearon con: NAME = " << attackerA.getName() << std::endl;
+	std::cout << "Los ClapTrap se crearon con: HIT POINTS = " << attackerA.getHitpoint() << std::endl;
+	std::cout << "Los ClapTrap se crearon con: ENERGY POINTS = " << attackerA.getEnergy() << std::endl;
+	std::cout << "Los ClapTrap se crearon con: ATTACK POINTS = " << attackerA.getDamage() << std::endl;
+	std::cout << "Los ClapTrap se crearon con: NAME = " << attackerB.getName() << std::endl;
+	std::cout << "Los ClapTrap se crearon con: HIT POINTS = " << attackerB.getHitpoint() << std::endl;
+	std::cout << "Los ClapTrap se crearon con: ENERGY POINTS = " << attackerB.getEnergy() << std::endl;
+	std::cout << "Los ClapTrap se crearon con: ATTACK POINTS = " << attackerB.getDamage() << std::endl;
+	std::cout << "Los ClapTrap se crearon con: NAME = " << attackerC.getName() << std::endl;
+	std::cout << "Los ClapTrap se crearon con: HIT POINTS = " << attackerC.getHitpoint() << std::endl;
+	std::cout << "Los ClapTrap se crearon con: ENERGY POINTS = " << attackerC.getEnergy() << std::endl;
+	std::cout << "Los ClapTrap se crearon con: ATTACK POINTS = " << attackerC.getDamage() << std::endl;
+	std::cout << "Los ClapTrap se crearon con: NAME = " << attackerD.getName() << std::endl;
+	std::cout << "Los ClapTrap se crearon con: HIT POINTS = " << attackerD.getHitpoint() << std::endl;
+	std::cout << "Los ClapTrap se crearon con: ENERGY POINTS = " << attackerD.getEnergy() << std::endl;
+	std::cout << "Los ClapTrap se crearon con: ATTACK POINTS = " << attackerD.getDamage() << std::endl;
 
 	std::cout << std::endl;
 	attackerA.attack("Stupid");
@@ -52,45 +69,49 @@ int     main(void)
 	std::cout << "Nokario ahora se llama ---> " << sicarioD.getName() << std::endl; 
 	
 	std::cout << std::endl;
-	std::cout << "Los sicarios se crearon con: NAME = " << sicarioA.getName() << std::endl;
-	std::cout << "Los sicarios se crearon con: HIT POINTS = " << sicarioA.getHitpoint() << std::endl;
-	std::cout << "Los sicarios se crearon con: ENERGY POINTS = " << sicarioA.ClapTrap::getEnergy() << std::endl;
-	std::cout << "Los sicarios se crearon con: ATTACK POINTS = " << sicarioA.ClapTrap::getDamage() << std::endl;
-	std::cout << "Los sicarios se crearon con: NAME = " << sicarioB.ClapTrap::getName() << std::endl;
-	std::cout << "Los sicarios se crearon con: HIT POINTS = " << sicarioB.ClapTrap::getHitpoint() << std::endl;
-	std::cout << "Los sicarios se crearon con: ENERGY POINTS = " << sicarioB.ClapTrap::getEnergy() << std::endl;
-	std::cout << "Los sicarios se crearon con: ATTACK POINTS = " << sicarioB.ClapTrap::getDamage() << std::endl;
-	std::cout << "Los sicarios se crearon con: NAME = " << sicarioC.ClapTrap::getName() << std::endl;
-	std::cout << "Los sicarios se crearon con: HIT POINTS = " << sicarioC.ClapTrap::getHitpoint() << std::endl;
-	std::cout << "Los sicarios se crearon con: ENERGY POINTS = " << sicarioC.ClapTrap::getEnergy() << std::endl;
-	std::cout << "Los sicarios se crearon con: ATTACK POINTS = " << sicarioC.ClapTrap::getDamage() << std::endl;
-	std::cout << "Los sicarios se crearon con: NAME = " << sicarioD.ClapTrap::getName() << std::endl;
-	std::cout << "Los sicarios se crearon con: HIT POINTS = " << sicarioD.ClapTrap::getHitpoint() << std::endl;
-	std::cout << "Los sicarios se crearon con: ENERGY POINTS = " << sicarioD.ClapTrap::getEnergy() << std::endl;
-	std::cout << "Los sicarios se crearon con: ATTACK POINTS = " << sicarioD.ClapTrap::getDamage() << std::endl;
+	std::cout << "Los ScavTrap se crearon con: NAME = " << sicarioA.getName() << std::endl;
+	std::cout << "Los ScavTrap se crearon con: HIT POINTS = " << sicarioA.getHitpoint() << std::endl;
+	std::cout << "Los ScavTrap se crearon con: ENERGY POINTS = " << sicarioA.getEnergy() << std::endl;
+	std::cout << "Los ScavTrap se crearon con: ATTACK POINTS = " << sicarioA.getDamage() << std::endl;
+	std::cout << "Los ScavTrap se crearon con: NAME = " << sicarioB.getName() << std::endl;
+	std::cout << "Los ScavTrap se crearon con: HIT POINTS = " << sicarioB.getHitpoint() << std::endl;
+	std::cout << "Los ScavTrap se crearon con: ENERGY POINTS = " << sicarioB.getEnergy() << std::endl;
+	std::cout << "Los ScavTrap se crearon con: ATTACK POINTS = " << sicarioB.getDamage() << std::endl;
+	std::cout << "Los ScavTrap se crearon con: NAME = " << sicarioC.getName() << std::endl;
+	std::cout << "Los ScavTrap se crearon con: HIT POINTS = " << sicarioC.getHitpoint() << std::endl;
+	std::cout << "Los ScavTrap se crearon con: ENERGY POINTS = " << sicarioC.getEnergy() << std::endl;
+	std::cout << "Los ScavTrap se crearon con: ATTACK POINTS = " << sicarioC.getDamage() << std::endl;
+	std::cout << "Los ScavTrap se crearon con: NAME = " << sicarioD.getName() << std::endl;
+	std::cout << "Los ScavTrap se crearon con: HIT POINTS = " << sicarioD.getHitpoint() << std::endl;
+	std::cout << "Los ScavTrap se crearon con: ENERGY POINTS = " << sicarioD.getEnergy() << std::endl;
+	std::cout << "Los ScavTrap se crearon con: ATTACK POINTS = " << sicarioD.getDamage() << std::endl;
 	std::cout << std::endl;
-	sicarioA.attack(sicarioC.ClapTrap::getName());
-	sicarioC.ClapTrap::takeDamage(43);
-	sicarioC.ClapTrap::beRepaired(16);
+	sicarioA.attack(sicarioC.getName());
+	sicarioC.takeDamage(43);
+	sicarioC.beRepaired(16);
 	std::cout << std::endl;
-	sicarioA.attack(sicarioB.ClapTrap::getName());
-	sicarioB.ClapTrap::takeDamage(32);
-	sicarioB.ClapTrap::beRepaired(12);
+	sicarioA.attack(sicarioB.getName());
+	sicarioB.attack(sicarioD.getName());
+	sicarioD.takeDamage(25);
 	std::cout << std::endl;
-	sicarioC.ClapTrap::attack(sicarioD.ClapTrap::getName());
-	sicarioD.ClapTrap::takeDamage(25);
+	sicarioC.attack(sicarioD.getName());
+	sicarioD.takeDamage(50);
 	std::cout << std::endl;
-	sicarioC.ClapTrap::attack(sicarioD.ClapTrap::getName());
-	sicarioD.ClapTrap::takeDamage(50);
-	std::cout << std::endl;
-	sicarioC.ClapTrap::attack(sicarioD.ClapTrap::getName());
-	sicarioD.ClapTrap::takeDamage(25);
+	sicarioC.attack(sicarioD.getName());
+	sicarioD.takeDamage(25);
 	std::cout << std::endl;
 
 	FragTrap	GivemeA;
 	FragTrap	GivemeB("Holita");
 	FragTrap	GivemeC(GivemeA);
 	FragTrap	GivemeD("Adiosito");
+
+	std::cout << std::endl;
+	GivemeA.highFivesGuys();
+	GivemeB.highFivesGuys();
+	GivemeC.highFivesGuys();
+	GivemeD.highFivesGuys();
+	std::cout << std::endl;
 
 	GivemeD = GivemeB;
 	std::cout << "Adiosito ahora se llama " << GivemeD.getName() << std::endl << std::endl;
@@ -117,6 +138,24 @@ int     main(void)
 	GivemeB.highFivesGuys();
 	GivemeC.highFivesGuys();
 	GivemeD.highFivesGuys();
+	std::cout << std::endl;
+	std::cout << std::endl;
+	sicarioA.attack(GivemeC.getName());
+	GivemeC.takeDamage(43);
+	GivemeC.beRepaired(16);
+	std::cout << std::endl;
+	attackerA.attack(GivemeB.getName());
+	GivemeB.takeDamage(32);
+	GivemeB.beRepaired(12);
+	std::cout << std::endl;
+	GivemeC.attack(GivemeD.getName());
+	GivemeD.takeDamage(25);
+	std::cout << std::endl;
+	GivemeC.attack(GivemeD.getName());
+	GivemeD.takeDamage(50);
+	std::cout << std::endl;
+	GivemeC.attack(GivemeD.getName());
+	GivemeD.takeDamage(25);
 	std::cout << std::endl;
 	
 	return (0);

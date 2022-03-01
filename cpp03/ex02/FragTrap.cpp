@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 12:38:52 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/02 15:32:21 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/01 13:04:39 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ FragTrap::FragTrap(void): ClapTrap("FragSilly")
 	std::cout << this->getName() << " FragTrap has been constructed with a silly name." << std::endl;
 }
 
-FragTrap::FragTrap(std::string name): _Hitpoints(100), _Energy_points(100), _Attack_damage(30)
+FragTrap::FragTrap(std::string name)
 {
 	this->setName(name);
-	this->setHitpoint(_Hitpoints);
-	this->setEnergy(_Energy_points);
-	this->setDamage(_Attack_damage);
+	this->setHitpoint(100);
+	this->setEnergy(100);
+	this->setDamage(30);
 	std::cout << this->getName() << " FragTrap has been constructed." << std::endl;
 }
 
@@ -34,7 +34,7 @@ FragTrap::FragTrap(const FragTrap &copy)
 {
 	std::cout << this->getName() << " FragTrap is going to be constructed as a copy of " << copy.getName()
 			<< " and all his values." << std::endl;
-	this->setName(this->copy.getName());
+	this->setName(copy.getName());
 	this->setHitpoint(copy.getHitpoint());
 	this->setEnergy(copy.getEnergy());
 	this->setDamage(copy.getDamage());
