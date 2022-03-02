@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 12:18:39 by fballest          #+#    #+#             */
-/*   Updated: 2022/02/02 15:27:27 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/02 11:32:02 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,7 +223,6 @@ int     main(void)
 	DiamondC.highFivesGuys();
 	DiamondD.highFivesGuys();
 	std::cout << std::endl;
-	std::cout << std::endl;
 
 	DiamondA.whoAmI();
 	DiamondB.whoAmI();
@@ -231,8 +230,33 @@ int     main(void)
 	DiamondD.whoAmI();
 	std::cout << std::endl;
 	
-	std::cout << "--------------------TESTED FINISHED--------------------";
+	std::cout << "--------------------TESTED FINISHED--------------------" << std::endl;
 
 	
 	return (0);
 }
+
+/*{
+	ClapTrap	clap("Clap");
+	ScavTrap	scav("Scav");
+	FragTrap	frag("Frag");
+	DiamondTrap	diamond("Diamond");
+
+	clap.attack(scav.getName());
+	scav.takeDamage(scav.getDamage());
+	
+	scav.attack(clap.getName());
+	clap.takeDamage(scav.getDamage());
+	
+	clap.beRepaired(5);
+
+	scav.guardGate();
+
+	frag.attack("himself");
+	frag.takeDamage(frag.getDamage());
+
+	frag.highFivesGuys();
+
+	diamond.attack("Pepe");
+	diamond.whoAmI();
+}*/
