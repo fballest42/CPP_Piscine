@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:18:18 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/03 12:18:47 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/03 15:17:53 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 #include <iostream>
 #include <string>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog: public Animal 
 {
 	private:
-		std::string		_type;
+		Brain	*_brain;
 
 	public:
 		Dog(void);

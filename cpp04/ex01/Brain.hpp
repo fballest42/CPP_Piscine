@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 09:18:12 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/03 15:18:02 by fballest         ###   ########.fr       */
+/*   Created: 2022/03/03 15:05:49 by fballest          #+#    #+#             */
+/*   Updated: 2022/03/03 15:12:59 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_H
-# define CAT_H
+#ifndef BRAIN_H
+# define BRAIN_H
 
 #include <iostream>
 #include <string>
-#include "Animal.hpp"
-#include "Brain.hpp"
 
-class Cat: public Animal 
+class Brain
 {
-	private:
-		Brain	*_brain;
+	protected:
+		std::string		_ideas[100];
 
 	public:
-		Cat(void);
-		Cat(const Cat &copy);
-		Cat(const std::string name);
-		Cat& operator=(const Cat &equal);
-		~Cat(void);
-
-		void	makeSound(void) const;
+		Brain(void);
+		Brain(const Brain &copy);
+		Brain(const std::string name);
+		Brain& operator=(const Brain &equal);
+		~Brain(void);
+		
+		void			setIdea(std::string idea);
+		std::string 	getIdea(void) const;
 };
 
 #endif
