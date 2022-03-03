@@ -48,7 +48,7 @@ int main()
 	brain->_ideas[1] = "I'm the best human friend";
 	brain->_ideas[2] = "I'm soo smart";
 	brain->_ideas[3] = "I must remeber my age is 18";
-	brain->_ideas[4] = "Do not touch my paws";
+	brain->_ideas[4] = "I like to play padel";
 
 	deep_copy = farm[3];
 	std::cout << "Deep copied animal is a " << deep_copy->getType() << std::endl;
