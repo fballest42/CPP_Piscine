@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:18:06 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/04 10:16:31 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:23:28 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,12 @@ class Animal
 		std::string		_type;
 
 	public:
-		Animal(void);
-		Animal(const Animal &copy);
-		Animal(const std::string name);
-		Animal& operator=(const Animal &equal);
 		virtual ~Animal(void);
-		
+		virtual Animal &operator=(const Animal &equal) const = 0;
+
 		void			setType(std::string type);
 		std::string 	getType(void) const;
-		virtual void	makeSound(void) const;
+		virtual void	makeSound(void) const = 0;
 		virtual Brain	*getBrain(void) const = 0;
 };
 

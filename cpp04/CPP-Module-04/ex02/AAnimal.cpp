@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:07:39 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/12/23 11:01:46 by rcabezas         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:33:35 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ AAnimal::~AAnimal(void)
 	std::cout << "AAnimal destructor called" << std::endl;
 }
 
-AAnimal &AAnimal::operator=(const AAnimal &op)
+AAnimal &AAnimal::operator=(const AAnimal &op) const
 {
 	std::cout << "AAnimal assingation operator called" << std::endl;
 	if (this == &op)

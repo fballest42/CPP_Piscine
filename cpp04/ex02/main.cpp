@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:18:21 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/04 12:01:50 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:30:43 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,9 @@
 
 int main()
 {
-	const Animal* doggy = new Dog();
-	const Animal* catty = new Cat();
 	Animal	*deep_copy;
 	Brain	*brain = NULL;
 	Animal	*alot[10];
-	std::cout << "                  SIMPLE ANIMALS" << std::endl;
-	std::cout << doggy->getType() << " " << std::endl;
-	std::cout << catty->getType() << " " << std::endl;
-	doggy->makeSound();
-	catty->makeSound();
-	delete doggy;
-	delete catty;
 	
 	std::cout << "                  A LOT OF ANIMALS" << std::endl;
 	int i = 0;

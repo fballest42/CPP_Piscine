@@ -6,14 +6,14 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:18:09 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/04 11:51:30 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:35:34 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Animal.hpp"
 
-Cat::Cat(void): Animal("Cat")
+Cat::Cat(void)
 {
 	std::cout << "Cat have been constructed." << std::endl;
 	this->_brain = new Brain;
@@ -33,6 +33,16 @@ Cat &Cat::operator=(const Cat &equal)
 		return (*this);
 	this->setType(equal.getType());
 	this->_brain = equal._brain;
+	return (*this);
+}
+
+Animal	&Cat::operator=(Animal const &eq)
+{
+	std::cout << "Animal assignation operator for cat called" << std::endl;
+	if (this == &eq)
+		return (*this);
+	this->_type = ep.getType();
+	this->setBrain(ep.getBrain());
 	return (*this);
 }
 

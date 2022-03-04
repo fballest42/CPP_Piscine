@@ -6,13 +6,13 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:18:16 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/04 11:48:00 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:39:59 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Dog.hpp"
 
-Dog::Dog(void): Animal("Dog")
+Dog::Dog(void)
 {
 	std::cout << "Dog have been constructed." << std::endl;
 	this->_brain = new Brain();
@@ -31,7 +31,15 @@ Dog &Dog::operator=(const Dog &equal)
 	if (this == &equal)
 		return (*this);
 	this->setType(equal.getType());
-	*(this->_brain) = *(equal._brain);
+	this->_brain = equal._brain;
+	return (*this);
+}
+
+Animal	&Dog::operator=(Animal const &eq)
+{
+	std::cout << "Animal assignation operator for dog called" << std::endl;
+	this->_type = eq.getType();
+	this->setBrain(eq.getBrain());
 	return (*this);
 }
 

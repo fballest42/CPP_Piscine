@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:18:18 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/04 12:03:47 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:38:53 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ class Dog: public Animal
 		Dog(void);
 		Dog(const Dog &copy);
 		Dog& operator=(const Dog &equal);
-		~Dog(void);
+		virtual ~Dog(void);
 
-		void	makeSound(void) const;
-		Brain	*getBrain(void) const;
+		virtual Animal &operator=(const Animal &copy);
+		virtual void	makeSound(void) const;
+		virtual Brain	*getBrain(void) const;
+
 		void	setBrain(Brain *brain);
 };
 
