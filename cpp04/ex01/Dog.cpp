@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:18:16 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/03 11:59:39 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/04 11:48:00 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,14 @@
 Dog::Dog(void): Animal("Dog")
 {
 	std::cout << "Dog have been constructed." << std::endl;
+	this->_brain = new Brain();
 }
 
 Dog::Dog(const Dog &copy)
 {
 	std::cout << "Dog copy have been constructed." << std::endl;
 	this->setType(copy.getType());
-    Animal::setType(copy.getType());
-}
-
-Dog::Dog(const std::string type): Animal("Dog")
-{
-	std::cout << "Dog have been constructed, and assigned name = " << type << std::endl;
-    this->_type = type;	
+	*(this->_brain) = *(copy._brain);
 }
 
 Dog &Dog::operator=(const Dog &equal)
@@ -36,15 +31,26 @@ Dog &Dog::operator=(const Dog &equal)
 	if (this == &equal)
 		return (*this);
 	this->setType(equal.getType());
+	*(this->_brain) = *(equal._brain);
 	return (*this);
 }
 
 Dog::~Dog(void)
 {
-	std::cout << "Dog have been destructed." << std::endl;	
+	std::cout << "Dog have been destructed." << std::endl;
+	delete this->_brain;
 }
 
 void	 Dog::makeSound(void) const
 {
 	std::cout << "Dog sound is Guau Guau." << std::endl;
+}
+Brain	*Dog::getBrain(void) const
+{
+	return this->_brain;
+}
+
+void	Dog::setBrain(Brain *brain)
+{
+	this->_brain = brain;
 }

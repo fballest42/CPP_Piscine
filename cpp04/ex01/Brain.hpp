@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 15:05:49 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/03 15:12:59 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/04 11:34:18 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,15 @@
 
 class Brain
 {
-	protected:
-		std::string		_ideas[100];
-
 	public:
+		std::string		idea[100];
 		Brain(void);
 		Brain(const Brain &copy);
-		Brain(const std::string name);
 		Brain& operator=(const Brain &equal);
 		~Brain(void);
 		
-		void			setIdea(std::string idea);
-		std::string 	getIdea(void) const;
+		std::string		*getIdeas(void) const;
+		void			setIdeas(std::string ideas[100]);
 };
 
 #endif

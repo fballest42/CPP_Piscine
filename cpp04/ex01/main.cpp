@@ -6,58 +6,71 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:18:21 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/03 15:19:10 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/04 12:01:50 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "Brain.hpp"
 
 int main()
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	
+	const Animal* doggy = new Dog();
+	const Animal* catty = new Cat();
 	Animal	*deep_copy;
-	Brain	*brain;
+	Brain	*brain = NULL;
+	Animal	*alot[10];
+	std::cout << "                  SIMPLE ANIMALS" << std::endl;
+	std::cout << doggy->getType() << " " << std::endl;
+	std::cout << catty->getType() << " " << std::endl;
+	doggy->makeSound();
+	catty->makeSound();
+	delete doggy;
+	delete catty;
 	
-	Animal	*farm[20];
-
-	for (int i = 0; i < 20; i++)
+	std::cout << "                  A LOT OF ANIMALS" << std::endl;
+	int i = 0;
+	while (i < 10)
 	{
-		if (i < 10)
-			farm[i] = new Cat();
-		if (i >= 10)
-			farm[i] = new Dog();
+		if (i % 2)
+			alot[i] = new Cat();
+		else
+			alot[i] = new Dog();
+		i++;
 	}
-
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-
-	delete i;
-	delete j;
-
-	brain = farm[3]->getBrain();
-	brain->_ideas[0] = "I'm the faster animal in the world";
-	brain->_ideas[1] = "I'm the best human friend";
-	brain->_ideas[2] = "I'm soo smart";
-	brain->_ideas[3] = "I must remeber my age is 18";
-	brain->_ideas[4] = "I like to play padel";
-
-	deep_copy = farm[3];
+	i = 0;
+	while (i < 10)
+	{
+		std::cout << alot[i]->getType() << " is my type" << std::endl;
+		alot[i]->makeSound();
+		i++;
+	}
+	std::cout << "                     SETTING BRAINS AND IDEAS TO A CONCRETE ANIMALS" << std::endl;
+	brain = alot[4]->getBrain();
+	brain->idea[0] = "I'm the faster animal in the world";
+	brain->idea[1] = "I'm the best human friend";
+	brain->idea[2] = "I'm soo smart";
+	brain->idea[3] = "I must remeber my age is 5";
+	brain->idea[4] = "I like to play with the ball";
+	brain->idea[5] = "Maybe I'm the faster animal in the world";
+	brain->idea[6] = "Maybe I'm the best human friend";
+	brain->idea[7] = "Maybe I'm soo smart";
+	brain->idea[8] = "Maybe I must remeber my age is 5";
+	brain->idea[9] = "Maybe I like to play with the ball";
+	std::cout << "The Animal choose to be deep copied is a " << alot[4]->getType() << std::endl;
+	deep_copy = alot[4];
 	std::cout << "Deep copied animal is a " << deep_copy->getType() << std::endl;
 
-	std::cout << "This are its ideas" << std::endl;
-	for (int i = 0; i < 5; i++)
-		std::cout << deep_copy->getBrain()->ideas[i] << std::endl;
 
-	for (int i = 0; i < 20; i++)
-		delete farm[i];
+	std::cout << "                     HERE ARE THE DEEP COPY IDEAS" << std::endl;
+	i = 0;
+	while (i < 10)
+		std::cout << deep_copy->getBrain()->idea[i++] << std::endl;
+	std::cout << "                     DESTRUCTION OF A LOT OF ANIMALS, BRAINS AND TYPES" << std::endl;
+	i = 0;
+	while (i < 10)
+		delete alot[i++];
 	return 0;
 }
