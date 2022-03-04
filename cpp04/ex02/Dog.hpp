@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 12:24:47 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/03 13:21:00 by fballest         ###   ########.fr       */
+/*   Created: 2022/03/03 09:18:18 by fballest          #+#    #+#             */
+/*   Updated: 2022/03/04 12:03:47 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_H
-# define WRONGCAT_H
+#ifndef Dog_H
+# define Dog_H
 
-#include <iostream>
-#include <string>
-#include "WrongAnimal.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class WrongCat: public WrongAnimal
+class Dog: public Animal 
 {
 	private:
-		std::string		_type;
+		Brain	*_brain;
 
 	public:
-		WrongCat(void);
-		WrongCat(const WrongCat &copy);
-		WrongCat(const std::string name);
-		WrongCat& operator=(const WrongCat &equal);
-		~WrongCat(void);
+		Dog(void);
+		Dog(const Dog &copy);
+		Dog& operator=(const Dog &equal);
+		~Dog(void);
 
-		void		makeSound(void) const;
+		void	makeSound(void) const;
+		Brain	*getBrain(void) const;
+		void	setBrain(Brain *brain);
 };
 
 #endif

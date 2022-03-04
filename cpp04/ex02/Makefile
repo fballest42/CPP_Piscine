@@ -6,12 +6,12 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/03/04 12:06:55 by fballest         ###   ########.fr        #
+#    Updated: 2022/03/04 12:06:46 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # FILE NAME
-NAME = Brain
+NAME = Abstract
 
 # SOURCES AND OBJECTS
 SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
