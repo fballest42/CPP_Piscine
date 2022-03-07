@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 12:53:06 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/07 13:16:50 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:26:14 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ Cure	&Cure::operator=(const Cure &equal)
 
 AMateria	*Cure::clone(void) const
 {
-
+	return (new Cure(*this));
 }
 
 void	use(ICharacter &target)
 {
-
+	std:cout << "* Heals " << target.getName() << " wounds *" << std::endl; 
 }
