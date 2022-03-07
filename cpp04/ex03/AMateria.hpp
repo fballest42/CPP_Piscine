@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 09:53:06 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/07 12:46:35 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:55:01 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <sys/types.h>
 #include "ICharacter.hpp"
 
-class   Amateria
+class   AMateria
 {
 	protected:
 		std::string		_type;
