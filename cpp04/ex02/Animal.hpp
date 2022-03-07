@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:18:06 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/04 14:23:28 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/07 09:42:55 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Animal
 
 	public:
 		virtual ~Animal(void);
-		virtual Animal &operator=(const Animal &equal) const = 0;
+		virtual Animal &operator=(const Animal &equal) = 0;
 
 		void			setType(std::string type);
 		std::string 	getType(void) const;

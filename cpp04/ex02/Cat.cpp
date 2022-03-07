@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:18:09 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/04 14:35:34 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/07 09:47:21 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 Cat::Cat(void)
 {
 	std::cout << "Cat have been constructed." << std::endl;
+	this->setType("cat");
 	this->_brain = new Brain;
 }
 
@@ -39,10 +40,9 @@ Cat &Cat::operator=(const Cat &equal)
 Animal	&Cat::operator=(Animal const &eq)
 {
 	std::cout << "Animal assignation operator for cat called" << std::endl;
-	if (this == &eq)
-		return (*this);
-	this->_type = ep.getType();
-	this->setBrain(ep.getBrain());
+
+	this->_type = eq.getType();
+	this->setBrain(eq.getBrain());
 	return (*this);
 }
 
@@ -59,7 +59,7 @@ void	 Cat::makeSound(void) const
 
 Brain	*Cat::getBrain(void) const
 {
-	return this->_brain;
+	return (this->_brain);
 }
 
 void	Cat::setBrain(Brain *brain)

@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 09:18:12 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/07 12:44:40 by fballest         ###   ########.fr       */
+/*   Created: 2022/03/07 12:53:12 by fballest          #+#    #+#             */
+/*   Updated: 2022/03/07 13:09:10 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_H
-# define CAT_H
+#ifndef CURE_H
+# define CURE_H
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
+#include <string>
+#include <sys/types.h>
+#include "ICharacter.hpp"
 
-class Cat: public Animal 
+class Cure: public AMateria
 {
-	private:
-		Brain	*_brain;
-
 	public:
-		Cat(void);
-		Cat(const Cat &copy);
-		Cat& operator=(const Cat &equal);
-		virtual ~Cat(void);
+		Cure(void);
+		Cure(std::string type);
+		Cure(const Cure &copy);
+		virtaul ~Cure(void);
+		Cure	&operator=(const Cure &equal);
 
-		virtual Animal &operator=(const Animal &copy);
-		virtual void	makeSound(void) const;
-		virtual Brain	*getBrain(void) const;
-		void	setBrain(Brain *brain);
+		virtual	AMateria	*clone(void) const;
+		void	use(ICharacter &target);
 };
 
 #endif

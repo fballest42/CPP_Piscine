@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:18:16 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/04 14:39:59 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/07 09:49:59 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Dog::Dog(void)
 {
 	std::cout << "Dog have been constructed." << std::endl;
+	this->_type = "dog";
 	this->_brain = new Brain();
 }
 
@@ -55,7 +56,7 @@ void	 Dog::makeSound(void) const
 }
 Brain	*Dog::getBrain(void) const
 {
-	return this->_brain;
+	return (this->_brain);
 }
 
 void	Dog::setBrain(Brain *brain)

@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 09:18:12 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/07 12:44:40 by fballest         ###   ########.fr       */
+/*   Created: 2022/03/07 09:53:06 by fballest          #+#    #+#             */
+/*   Updated: 2022/03/07 12:56:05 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_H
-# define CAT_H
+#ifndef ICHARACTER_H
+# define ICHARACTER_H
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
+#include <string>
+#include <sys/types.h>
+#include "AMateria.hpp"
 
-class Cat: public Animal 
+class AMateria;
+
+class ICharacter
 {
-	private:
-		Brain	*_brain;
-
 	public:
-		Cat(void);
-		Cat(const Cat &copy);
-		Cat& operator=(const Cat &equal);
-		virtual ~Cat(void);
-
-		virtual Animal &operator=(const Animal &copy);
-		virtual void	makeSound(void) const;
-		virtual Brain	*getBrain(void) const;
-		void	setBrain(Brain *brain);
+		virtual ~ICharacter() {}
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria* m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
 };
 
 #endif
