@@ -6,7 +6,7 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/03/07 12:57:45 by fballest         ###   ########.fr        #
+#    Updated: 2022/03/08 10:01:57 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = Materia
 
 # SOURCES AND OBJECTS
-SRC = main.cpp Amateria.cpp Cure.cpp Ice.cpp ICharacter.cpp IMateriaSource.cpp 
+SRC = main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp 
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION
