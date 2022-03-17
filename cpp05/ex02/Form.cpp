@@ -6,15 +6,16 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:37:09 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/16 16:18:08 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/17 12:22:52 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 Form::Form(void) : _name("Universal"), _signed(false), _gradesigner(150), _gradeexecuter(150)
 {
-	std::cout << "Form default constructor." << std:.endl;
+	std::cout << "Form default constructor." << std::endl;
 }
 
 Form::Form(std::string name, int gradesigner, int gradeexecuter) : _name(name), _signed(false), _gradesigner(gradesigner), _gradeexecuter(gradeexecuter)
@@ -60,9 +61,9 @@ int			Form::getGradeExecuter(void) const
 	return (this->_gradeexecuter);
 }
 
-void		Form::beSigned(Bureaucrat &bureaucrat)
+void		Form::beSigned(Bureaucrat &bureau)
 {
-	if (bureaucrat.getGrade() <= this->getGradeSigner())
+	if (bureau.getGrade() <= this->getGradeSigner())
 		this->_signed = true;
 	else
 		throw Form::GradeTooLowException();
@@ -75,7 +76,7 @@ void	Form::execute(Bureaucrat const &exec) const
 	else if (exec.getGrade() > this->getGradeExecuter())
 		throw Form::GradeTooHighException();
 	else
-		std::cout << "Executed "
+		std::cout << "Executed." << std::endl;
 }
 
 std::ostream	&operator<<(std::ostream &out, const Form &select)

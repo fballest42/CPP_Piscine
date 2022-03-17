@@ -6,20 +6,20 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/03/16 12:51:29 by fballest         ###   ########.fr        #
+#    Updated: 2022/03/17 10:53:08 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # FILE NAME
-NAME = 
+NAME = Presidential
 
 # SOURCES AND OBJECTS
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror -g --std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -I . -I forms --std=c++98
 
 # REMOVE FILES INSTRUCTION
 RM = rm -rf

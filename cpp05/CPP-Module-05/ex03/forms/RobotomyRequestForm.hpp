@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/16 12:54:12 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/17 11:11:26 by fballest         ###   ########.fr       */
+/*   Created: 2021/12/27 12:10:02 by rcabezas          #+#    #+#             */
+/*   Updated: 2021/12/27 14:53:36 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 class RobotomyRequestForm : public Form
 {
-    public:
-        RobotomyRequestForm(std::string target);
-        virtual ~RobotomyRequestForm(void);
-        RobotomyRequestForm(const RobotomyRequestForm &copy);
-        RobotomyRequestForm &operator=(const RobotomyRequestForm &equal);
+	public:
+		RobotomyRequestForm(std::string target);
+		virtual ~RobotomyRequestForm(void);
+		RobotomyRequestForm(const RobotomyRequestForm &copy);
+		RobotomyRequestForm &operator=(const RobotomyRequestForm &op);
 
-        void execute(const Bureaucrat &exec) const;
+		void	execute(const Bureaucrat &executor) const;
 };

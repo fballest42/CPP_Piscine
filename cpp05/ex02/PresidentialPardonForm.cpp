@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 12:54:50 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/16 16:00:00 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/17 11:15:12 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 PresidentialPardomForm::PresidentialPardomForm(std::string target) : Form("PresidentialForm", 25, 5)
 {
     std::cout << "PresidentialPardonForm constructor." << std::endl;
+    this->_target = target;
 }
 
 PresidentialPardomForm::~PresidentialPardomForm(void)
@@ -24,7 +25,7 @@ PresidentialPardomForm::~PresidentialPardomForm(void)
 
 PresidentialPardomForm::PresidentialPardomForm(const PresidentialPardomForm &copy)
 {
-    std::cout << "PresidentialPardonForm copy constructor." << std:.endl;
+    std::cout << "PresidentialPardonForm copy constructor." << std::endl;
     *this = copy;
 }
 

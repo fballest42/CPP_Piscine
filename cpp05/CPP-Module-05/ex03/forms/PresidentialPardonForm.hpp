@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/16 12:54:50 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/17 11:09:46 by fballest         ###   ########.fr       */
+/*   Created: 2021/12/27 12:10:35 by rcabezas          #+#    #+#             */
+/*   Updated: 2021/12/27 15:54:10 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-class PresidentialPardomForm : public Form
+class PresidentialPardonForm : public Form
 {
-    public:
-        PresidentialPardomForm(std::string target);
-        virtual ~PresidentialPardomForm(void);
-        PresidentialPardomForm(const PresidentialPardomForm &copy);
-        PresidentialPardomForm &operator=(const PresidentialPardomForm &equal);
+	public:
+		PresidentialPardonForm(std::string target);
+		virtual ~PresidentialPardonForm(void);
+		PresidentialPardonForm(const PresidentialPardonForm &copy);
+		PresidentialPardonForm &operator=(const PresidentialPardonForm &op);
 
-        void    execute(const Bureaucrat &exec) const;
+		void	execute(const Bureaucrat &executor) const;
 };

@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 12:54:08 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/16 15:50:14 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/17 13:10:37 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("RobotomyFor
 
 RobotomyRequestForm::~RobotomyRequestForm(void)
 {
-    std::cout " RobotomyRequestForm destructor." << std::endl;
+    std::cout << "RobotomyRequestForm destructor." << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy)
