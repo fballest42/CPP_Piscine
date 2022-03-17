@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:23:33 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/17 14:02:23 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/17 14:13:59 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,31 +19,31 @@ Form    *createPresidentialPardonForm(std::string const &target);
 Form    *createShrubberyCreationForm(std::string const &target);
 Form    *createRobotomyRequestForm(std::string const &target);
 
-Interm::Intern(void)
+Intern::Intern(void)
 {
-	std::cout << "Interm default constructor." << std::endl; 
+	std::cout << "Intern default constructor." << std::endl; 
 }
 
-Interm::Intern(const Intern &copy)
+Intern::Intern(const Intern &copy)
 {
 	std::cout << "Intern copy constructor." << std::endl;
 	*this = copy;
 }
 
-Interm::~Intern(void)
+Intern::~Intern(void)
 {
 	std::cout << "Intern destructor." << std::endl;
 }
 
-Interm::Intern  &operator=(const Intern &equal)
+Intern  &Intern::operator=(const Intern &equal)
 {
 	std::cout << "Intern equal constructor." << std::endl;
 	if (this == &equal)
-		return (*this)
+		return (*this);
 	return (*this);
 }
 
-Form	*Interm::makeForm(std::string form, std::string target) const
+Form	*Intern::makeForm(std::string form, std::string target) const
 {
 	std::string lform[3] ={"Shrubbery_creation", "Robotomy_request", "Presidential_pardon"};
 	Form	*(*f[3])(const std::string &);
@@ -59,8 +59,8 @@ Form	*Interm::makeForm(std::string form, std::string target) const
 		if (lform[i] == form)
 		{
 			newform = (f[i])(target);
-			std::cout << "Itern creates " << newform.getName() << " form." << std::endl;
-			return (ret);
+			std::cout << "Itern creates " << newform->getName() << " form." << std::endl;
+			return (newform);
 		}
 	}
 	throw Intern::NonFormException();

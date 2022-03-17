@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:23:20 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/17 13:30:44 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/17 14:12:35 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Intern
 		
 		class	NonFormException : public std::exception
 		{
-			virtual const char * what() const throw();
+			virtual const char * what() const throw()
 			{
 				return ("Your Form is unknown for me.");
 			}

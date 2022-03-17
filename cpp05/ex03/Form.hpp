@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:36:56 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/17 13:04:10 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/17 14:07:40 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,27 @@ class Form
 
 		virtual void	execute(Bureaucrat const &exec) const = 0;
 
-		class		GradeTooHighException : public std::exception
+		class	GradeTooHighException : public std::exception
 		{
 			virtual const char * what() const throw()
 			{
 				return ("The form grade requiered is Higher");
 			}
 		};
-		class GradeTooLowException : public std::exception
+		
+		class	GradeTooLowException : public std::exception
 		{
 			virtual const char * what() const throw()
 			{
 				return ("The form grade requiered is Lower");
 			}
 		};
+		
 		class	NotSignedException : public std::exception
 		{
 			virtual const char * what() const throw()
 			{
-				return "The form is not signed.";
+				return ("The form is not signed.");
 			}
 		};
 };

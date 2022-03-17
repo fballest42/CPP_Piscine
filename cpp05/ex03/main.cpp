@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:10:21 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/17 13:19:11 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/17 14:29:17 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int     main(void)
 {
@@ -42,6 +43,11 @@ int     main(void)
 		bureau.executeForm(robotmy_2);
 		bureau.signForm(president_2);
 		bureau.executeForm(president_2);
+
+		Form *rrf;
+		Intern someRandomIntern;
+
+		rrf = someRandomIntern.makeForm("holi", "Bender");
 	}
 	catch(const std::exception& e)
 	{

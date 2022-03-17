@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:36:56 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/17 13:04:10 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/17 14:08:07 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ class Form
 				return ("The form grade requiered is Higher");
 			}
 		};
+		
 		class GradeTooLowException : public std::exception
 		{
 			virtual const char * what() const throw()
@@ -55,6 +56,7 @@ class Form
 				return ("The form grade requiered is Lower");
 			}
 		};
+		
 		class	NotSignedException : public std::exception
 		{
 			virtual const char * what() const throw()
