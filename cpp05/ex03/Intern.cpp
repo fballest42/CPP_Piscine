@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:23:33 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/17 14:13:59 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/18 10:57:04 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,11 @@ Form	*Intern::makeForm(std::string form, std::string target) const
 	{
 		if (lform[i] == form)
 		{
-			newform = (f[i])(target);
+			newform = (*f[i])(target);
 			std::cout << "Itern creates " << newform->getName() << " form." << std::endl;
 			return (newform);
 		}
+		i++;
 	}
 	throw Intern::NonFormException();
 }

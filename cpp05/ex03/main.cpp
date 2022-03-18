@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:10:21 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/17 14:29:17 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/18 11:19:54 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,28 @@ int     main(void)
 		bureau.signForm(president_2);
 		bureau.executeForm(president_2);
 
-		Form *rrf;
-		Intern someRandomIntern;
+		Intern myIntern;
+		Intern myIntern_2;
+		Intern myIntern_3;
+		Intern myIntern_n;
+		Bureaucrat bur("TOM", 1);
+		Form	*form;
+		Form	*form_2;
+		Form	*form_3;
+		Form	*form_n;
 
-		rrf = someRandomIntern.makeForm("holi", "Bender");
+		form = myIntern.makeForm("Robotomy_request", "ALL");
+		bur.signForm(*form);
+		bur.executeForm(*form);
+		form_2 = myIntern_2.makeForm("Shrubbery_creation", "ALL_2");
+		bur.signForm(*form_2);
+		bur.executeForm(*form_2);
+		form_3 = myIntern_3.makeForm("Presidential_pardon", "ALL_3");
+		bur.signForm(*form_3);
+		bur.executeForm(*form_3);
+		form_n = myIntern_n.makeForm("do_not_do_it", "ALL_N");
+		bur.signForm(*form_n);
+		bur.executeForm(*form_n);
 	}
 	catch(const std::exception& e)
 	{
