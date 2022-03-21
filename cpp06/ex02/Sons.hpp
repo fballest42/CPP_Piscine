@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   Sons.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/21 19:59:36 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/12/21 20:04:23 by rcabezas         ###   ########.fr       */
+/*   Created: 2022/03/21 09:51:16 by fballest          #+#    #+#             */
+/*   Updated: 2022/03/21 09:53:11 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cstdint>
-#include <iostream>
+#ifndef SONS_HPP
+# define SONS_HPP
 
-struct	Data
-{
-	int	n;
-};
+#include "Base.hpp"
 
-uintptr_t serialize(Data *ptr);
-Data *deserialize(uintptr_t raw);
+class	A: public Base {};
+class	B: public Base {};
+class	C: public Base {};
+
+#endif

@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   iter.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/21 19:55:07 by rcabezas          #+#    #+#             */
-/*   Updated: 2022/03/21 00:49:51 by fballest         ###   ########.fr       */
+/*   Created: 2022/03/21 13:31:57 by fballest          #+#    #+#             */
+/*   Updated: 2022/03/21 13:40:23 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Data.hpp"
+#ifndef ITER_HPP
+# define ITER_HPP
 
-int	main(void)
+#include <iostream>
+
+template <typename T>
+void    iter(T *array, int num, void (*f)(const T &))
 {
-	Data		*data;
-	uintptr_t	number;
-	Data		*returned;
-
-	data = new Data;
-	data->n = 5;
-	number = serialize(data);
-	std::cout << number << std::endl;
-	returned = deserialize(number);
-	std::cout << returned->n << std::endl;
-
-	return 0;
+	int     i;
+	try
+	{
+		if (!array || num = 0 ||)
+			return ;
+		while (i < num)
+		{
+			f(array[i]);
+			i++;
+		}  
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return ;
+	}
 }
+
+#endif

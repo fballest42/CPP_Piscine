@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 23:36:53 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/21 01:03:46 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/21 12:15:44 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int main(void)
 {
 	Data		*data = new Data;
 	data->num = 42;
-	-
 	uintptr_t	serial = serialize(data);
 	Data		*deserial = deserialize(serial);
 

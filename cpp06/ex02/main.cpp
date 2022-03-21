@@ -6,50 +6,47 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 23:36:53 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/21 01:06:47 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/21 11:52:04 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cstdlib>
 #include <iostream>
 #include <ctime>
+#include "Sons.hpp"
 
-class Base { public: virtual ~Base(){}; };
-class A : public Base {};
-class B : public Base {};
-class C : public Base {};
-
-Base * generate(void)
+Base	*generate(void)
 {
-	Base *ptr;
+	int randnum = 0;
+	Base *base_ptr;
 
 	srand(std::time(NULL));
-	int num = rand() % 3;
-	switch (num)
+	randnum = rand() % 3;
+	switch (randnum)
 	{
 		case 0:
-			ptr = new A;
-			std::cout << "Building A" << std::endl;
+			base_ptr = new A;
+			std::cout << "A is constructed" << std::endl;
 			break;
 		case 1:
-			ptr = new B;
-			std::cout << "Building B" << std::endl;
+			base_ptr = new B;
+			std::cout << "B is constructed" << std::endl;
 			break;
 		case 2:
-			ptr = new C;
-			std::cout << "Building C" << std::endl;
+			base_ptr = new C;
+			std::cout << "C is constructed" << std::endl;
 			break;
 		default:
 			return NULL;
 	}
-	return ptr;
+	return base_ptr;
 }
 
 void identify(Base* p)
 {
-	A *a;
-	B *b;
-	C *c;
+	A	*a;
+	B	*b;
+	C	*c;
 
 	a = dynamic_cast<A*>(p);
 	b = dynamic_cast<B*>(p);
@@ -64,95 +61,58 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-	int i = -1;
+	int i = 0;
 
 	while (i < 3)
 	{
-		i++;
-		if (i == 0)
+		try
 		{
-			try
+			if (i == 0)
 			{
-				A &a  = dynamic_cast<A&>(p);
-				(void) a;
+				A& a  = dynamic_cast<A&>(p);
+				(void)a;
 				std::cout << "A" << std::endl;
+				i++;
 				break;
 			}
-			catch (std::exception &e)
+			else if (i == 1)
 			{
-				continue;
-			}
-		}
-		
-		if (i == 1)
-		{
-			try
-			{
-				B &b  = dynamic_cast<B&>(p);
-				(void) b;
+				B& b  = dynamic_cast<B&>(p);
+				(void)b;
 				std::cout << "B" << std::endl;
+				i++;
 				break;
 			}
-			catch (std::exception &e)
+			else
 			{
-				continue;
-			}
-		}
-
-		if (i == 2)
-		{
-			try
-			{
-				C &c  = dynamic_cast<C&>(p);
-				(void) c;
+				C& c  = dynamic_cast<C&>(p);
+				(void)c;
 				std::cout << "C" << std::endl;
+				i++;
 				break;
 			}
-			catch (std::exception &e)
-			{
-				continue;
-			}
+		}
+		catch (std::exception &e)
+		{
+			i++;
+			continue;
 		}
 	}
-}
-
-void	testrandom()
-{
-	int i = 0;
-	int a,b,c;
-	
-	a = b = c = 0;
-	srand(std::time(NULL));
-	while (i < 10000)
-	{
-		int num = rand() % 3;
-		if (num == 0)
-			a++;
-		if (num == 1)
-			b++;
-		if (num == 2)
-			c++;
-		i++;
-	}
-	std::cout << "Testing random:" << std::endl;
-	std::cout << "(0):" << a << std::endl;
-	std::cout << "(1):" << b << std::endl;
-	std::cout << "(2):" << c << std::endl;
 }
 
 int	main(void)
 {
-	testrandom();
-	
-	Base *mysterious_ptr = generate();
-	if (!mysterious_ptr)
+	std::cout << std::endl;
+	std::cout << "_______MAKING RANDOM TEST OF 10._______" << std::endl;
+	Base *Baseptr = generate();
+	if (!Baseptr)
 		return (-1);
-	Base &mysterious_ref = *mysterious_ptr;
-
-	std::cout << "Calling: void identify(Base* p)" << std::endl;
-	identify(mysterious_ptr);
-	std::cout << "Calling: void identify(Base& p)" << std::endl;
-	identify(mysterious_ref);
-	delete (mysterious_ptr);
+	Base &Baseref = *Baseptr;
+	std::cout << "Executing funtion for POINTER: 'void identify(Base* p)'" << std::endl;
+	identify(Baseptr);
+	std::cout << "Executing funtion for REFERENCE: 'void identify(Base& p)'" << std::endl;
+	identify(Baseref);
+	delete (Baseptr);
+	std::cout << "_____________TEST FINISHED_____________" << std::endl;
 	return (0);
 }

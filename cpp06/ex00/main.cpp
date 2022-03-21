@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 23:36:53 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/21 00:38:55 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/21 12:33:53 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main(int argc, char **argv)
     //FOR CHAR CONVERSION
 	if (std::isnan(input) || std::isinf(input))
 		std::cout << "Char impossible." << std::endl;
-	else if (!std::isprint(c))
+	else if (!std::isprint(c) || i > 126)
 		std::cout << "Char non printable." << std::endl;
 	else
 		std::cout << "Char: " << static_cast<char>(input) << std::endl;
@@ -52,7 +52,7 @@ int main(int argc, char **argv)
     
 	if (std::isnan(input) || std::isinf(input))
 		std::cout << "Float: " << static_cast<float>(input) << "f" << std::endl;
-	else if (input == (int)input)
+	else if (input == i)
         std::cout << "Float: " << static_cast<float>(input) << ".0f" << std::endl;
     else
 		std::cout << "Float: " << static_cast<float>(input) << "f" << std::endl;

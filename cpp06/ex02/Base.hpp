@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/21 20:04:31 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/12/27 22:06:22 by rcabezas         ###   ########.fr       */
+/*   Created: 2022/03/21 09:27:40 by fballest          #+#    #+#             */
+/*   Updated: 2022/03/21 10:42:38 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Data.hpp"
+#ifndef BASE_HPP
+# define BASE_HPP
 
-uintptr_t	serialize(Data *ptr)
-{
-	return reinterpret_cast<uintptr_t>(ptr);
-}
+#include <cstdlib>
+#include <iostream>
+#include <ctime>
 
-Data		*deserialize(uintptr_t raw)
+class	Base
 {
-	return reinterpret_cast<Data *>(raw);
-}
+	public:
+		virtual ~Base();
+};
+
+#endif

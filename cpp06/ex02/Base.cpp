@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   C.hpp                                              :+:      :+:    :+:   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/21 20:15:30 by rcabezas          #+#    #+#             */
-/*   Updated: 2021/12/21 20:44:46 by rcabezas         ###   ########.fr       */
+/*   Created: 2022/03/21 09:30:20 by fballest          #+#    #+#             */
+/*   Updated: 2022/03/21 10:40:38 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#include<Base.hpp>
 
-class C : public Base
+Base::~Base()
 {
-};
-
+	std::cout << "Base destructor." << std::endl;
+}

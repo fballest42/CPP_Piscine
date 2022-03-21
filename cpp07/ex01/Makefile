@@ -6,12 +6,12 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/03/21 10:30:29 by fballest         ###   ########.fr        #
+#    Updated: 2022/03/21 13:29:23 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # FILE NAME
-NAME = Identifyer
+NAME = Iter
 
 
 # SOURCES AND OBJECTS
