@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   a.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rcabezas <rcabezas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/19 20:24:10 by rcabezas          #+#    #+#             */
-/*   Updated: 2022/03/21 14:18:25 by fballest         ###   ########.fr       */
+/*   Created: 2021/12/21 20:13:59 by rcabezas          #+#    #+#             */
+/*   Updated: 2021/12/21 20:44:41 by rcabezas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-template <typename T>
-void	iter(T *arr, int n, void (*fun)(const T &element))
-{
-	for (int i = 0; i < n; i++)
-		fun(arr[i]);
-}
+#include "Base.hpp"
+
+class	A : public Base
+{	
+};
