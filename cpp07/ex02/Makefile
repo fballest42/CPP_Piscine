@@ -6,21 +6,21 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/03/21 10:30:29 by fballest         ###   ########.fr        #
+#    Updated: 2022/03/22 13:15:54 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # FILE NAME
-NAME = Identifyer
+NAME = Array
 
 
 # SOURCES AND OBJECTS
-SRC = main.cpp Base.cpp
+SRC = main.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror -I . -I forms --std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -I . -I forms --std=c++98 -pedantic
 
 # REMOVE FILES INSTRUCTION
 RM = rm -rf
