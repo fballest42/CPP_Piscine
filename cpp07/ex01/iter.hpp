@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.cpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:31:57 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/21 13:40:23 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/22 11:34:11 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,20 @@
 
 #include <iostream>
 
+int		g_count = 0;
+
 template <typename T>
-void    iter(T *array, int num, void (*f)(const T &))
+void    iter(T *array, int num, void (*f)(T &))
 {
-	int     i;
+	int     i = 0;
 	try
 	{
-		if (!array || num = 0 ||)
+		if (!array || num == 0)
 			return ;
-		while (i < num)
+		while (i < num && g_count < 4)
 		{
 			f(array[i]);
+			g_count++;
 			i++;
 		}  
 	}

@@ -6,7 +6,7 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/03/21 13:29:23 by fballest         ###   ########.fr        #
+#    Updated: 2022/03/22 09:41:56 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = Iter
 
 
 # SOURCES AND OBJECTS
-SRC = main.cpp Base.cpp
+SRC = main.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION
