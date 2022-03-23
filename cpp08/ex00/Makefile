@@ -6,21 +6,21 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/03/21 19:24:08 by fballest         ###   ########.fr        #
+#    Updated: 2022/03/23 00:15:06 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # FILE NAME
-NAME = Identifyer
+NAME = Easyfind
 
 
 # SOURCES AND OBJECTS
-SRC = main.cpp Base.cpp
+SRC = main.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror -I . -I forms --std=c++98
+CXXFLAGS = -Wall -Wextra -Werror --std=c++98 -pedantic
 
 # REMOVE FILES INSTRUCTION
 RM = rm -rf
@@ -52,4 +52,3 @@ fclean:
 	@echo "Success full cleaning of $(NAME)"
 
 .PHONY: all clean fclean re shell
-https://www.youtube.com/watch?v=25BN5a1oigw
