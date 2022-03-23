@@ -6,16 +6,16 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/03/23 00:26:54 by fballest         ###   ########.fr        #
+#    Updated: 2022/03/23 12:39:33 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # FILE NAME
-NAME = Span
+NAME = MutantStack
 
 
 # SOURCES AND OBJECTS
-SRC = main.cpp span.cpp
+SRC = main.cpp mutantstack.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION
