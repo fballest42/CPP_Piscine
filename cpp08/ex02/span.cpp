@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:31:57 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/23 11:51:41 by fballest         ###   ########.fr       */
+/*   Updated: 2022/03/23 11:18:51 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Span	&Span::operator=(const Span &equal)
 		return (*this);
 	this->_array.clear();
 	this->_array = std::vector<int>(equal._array.size());
-	addNumber(equal._start, equal._last);
+	addNumbers(equal._start, equal._last);
 	this->_start = this->_array.begin();
 	this->_last = this->_array.begin();
 	this->_finish = this->_array.end();
@@ -71,32 +71,32 @@ void	Span::addNumber(const std::vector<int>::iterator begin, const std::vector<i
 	}
 }
 
-unsigned long 	Span::shortestSpan() const
+long 	Span::shortestSpan() const
 {
 	if ((this->_last - this->_array.begin()) <= 1)
 		throw NoSpanException();
 	std::sort(this->_start, this->_finish);
-	unsigned long min = (long)this->_array[1] - (long)this->_array[0];
+	long min = (long)this->_array[1] - (long)this->_array[0];
 	int size = this->_array.size();
 	int	i = 0;
 	while (i < size)
 	{
-		if ((((unsigned long)this->_array[i + 1] - (unsigned long)this->_array[i])) < min)
-			min = ((unsigned long)this->_array[i + 1] - (unsigned long)this->_array[i]);
+		if (((long)this->_array[i + 1] - (long)this->_array[i]) < min)
+			min = (long)this->_array[i + 1] - (long)this->_array[i];
 		i++;
 	}
+	if (min < 0)
+		min = min * -1;
 	return (min);
 }
 
-unsigned long	Span::longestSpan(void) const
+long	Span::longestSpan(void) const
 {
 	if (this->_array.size() <= 1)
 		throw NoSpanException();
 	std::vector<int>::iterator 		minimum;
 	std::vector<int>::iterator		maximum;
 	minimum = std::min_element(this->_start, this->_finish);
-	std::cout << "MINIMUM " << *minimum << std::endl;
 	maximum = std::max_element(this->_start, this->_finish);
-	std::cout << "MAXIMUM " << *maximum << std::endl;
-	return ((unsigned long)*maximum - (unsigned long)*minimum);
+	return ((long)(maximum - minimum));
 }

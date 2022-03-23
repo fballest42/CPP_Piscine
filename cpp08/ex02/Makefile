@@ -6,7 +6,7 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2022/03/23 11:56:38 by fballest         ###   ########.fr        #
+#    Updated: 2022/03/23 00:26:54 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = Span
 
 
 # SOURCES AND OBJECTS
-SRC = main_sub.cpp span.cpp
+SRC = main.cpp span.cpp
 OBJS = $(SRC:.cpp=.o)
 
 # COMPILATION
