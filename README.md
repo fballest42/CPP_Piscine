@@ -1,6 +1,6 @@
 # CPP PISCINE
 
-## CPP Piscine - 42 Cursus.
+## CPP Piscine - 42 Cursus. 
 It is a list of projects focussed in C++, it is the first exercise of the 42 Cursus which introduce to the students into the C++ language. During nine different subjects we must work in 35 different exercises to get the fundamentals of C++ and Object Oriented Programming.
 
 #### CPP MODULE 00:
