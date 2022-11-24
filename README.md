@@ -1,7 +1,6 @@
 # CPP PISCINE
 
-### CPP Piscine into the common core of 42 Cursus. 
-
+### CPP Piscine - 42 Cursus.
 It is a list of projects focussed in C++, it is the first exercise of the 42 Cursus which introduce to the students into the C++ language. During nine different subjects we must work in 35 different exercises to get the fundamentals of C++ and Object Oriented Programming.
 
 #####CPP MODULE 00:
@@ -31,4 +30,4 @@ This module is designed to help you understand Templates in CPP. More info [here
 #####CPP MODULE 08:
 This module is designed to help you understand templated containers, iterators and algorithms in CPP. More info [here](cpp08/Readme.md).
 
-###GRADED:   [![fballest's 42 webserv Score](https://badge42.vercel.app/api/v2/cl45d74de005409l9l5r3ozl6/project/2572155)](https://github.com/JaeSeoKim/badge42)
+###GRADED:		[![fballest's 42 webserv Score](https://badge42.vercel.app/api/v2/cl45d74de005409l9l5r3ozl6/project/2572155)](https://github.com/JaeSeoKim/badge42)
