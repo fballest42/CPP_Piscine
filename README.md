@@ -1,11 +1,10 @@
-# CPP PISCINE 
-![](./pngc++.png =50x50)
+# CPP PISCINE
+<img src="pngc++.png" alt="pngc++" width="100"/>
 
 ## CPP Piscine - 42 Cursus. 
 It is a list of projects focussed in C++, it is the first exercise of the 42 Cursus which introduce to the students into the C++ language. During nine different subjects we must work in 35 different exercises to get the fundamentals of C++ and Object Oriented Programming.
 
-#### CPP MODULE 00:
-This first module of C++ is designed to help you understand the specifities of the language when compared to C. Time to dive into Object Oriented Programming!. More info [here](cpp00/Readme.md).
+<font size=”3”> CPP MODULE 00: <font size=”1”> This first module of C++ is designed to help you understand the specifities of the language when compared to C. Time to dive into Object Oriented Programming!. More info [here](cpp00/Readme.md).</font>
 
 #### CPP MODULE 01:
 This module is designed to help you understand the memory allocation, reference, pointers to members and the usage of the switch in CPP. More info [here](cpp01/Readme.md).
