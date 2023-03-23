@@ -7,7 +7,7 @@
 class BitcoinExchange
 {
 	private:
-		std::string 		file = "./data.csv";
+		std::string 						file;
 		std::vector<std::pair<int, float> > prices;
 
 	public:
@@ -19,6 +19,8 @@ class BitcoinExchange
 
 		int     getDate(void) const;
 		float   getValue(void) const;
+		bool	checkDateImputFile(std::string const date) const;
+		bool	checkValueImputFile(float const value) const;
 		void	getMovements(std::string imput_file);
 		void    setPriceVector(std::string file);
 };    		

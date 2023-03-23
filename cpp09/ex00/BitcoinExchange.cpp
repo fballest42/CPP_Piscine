@@ -5,12 +5,12 @@
 #include<time.h>
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange() 
+BitcoinExchange::BitcoinExchange(): file("./data.csv")
 {
 	this->setPriceVector(this->file);
 }
 
-BitcoinExchange::BitcoinExchange(const std::string file_imput)
+BitcoinExchange::BitcoinExchange(const std::string file_imput): file("./data.csv")
 {
 	this->setPriceVector(this->file);
 	this->getMovements(file_imput);
@@ -41,6 +41,16 @@ float   BitcoinExchange::getValue(void) const
 
 }
 
+bool	BitcoinExchange::checkDateImputFile(std::string const date) const
+{
+	return true
+;}
+
+bool	BitcoinExchange::checkValueImputFile(float const value) const
+{
+	return true;
+}
+
 void	BitcoinExchange::getMovements(std::string imput_file)
 {
 	std::string			line;
@@ -55,13 +65,15 @@ void	BitcoinExchange::getMovements(std::string imput_file)
 			std::stringstream lin(line);
 			getline(lin, date, '|');
 			getline(lin, value, '\n');
-			//Chequear que fecha es válida
-			//Chequear que valor es válido
-			//Si ambos son correctos hacer lo que viene a continuación
+			if (checkDateImputFile(date) && checkValueImputFile(value))
+			{
 			date.erase(std::remove(date.begin(), date.end(), '-'), date.end());
 			//Comparar fecha con las del vector quedandose con el valor por debajo
 			//Hacer los cálculos con el valor anteriormente optenido
 			//Imprimir y dar formato a la salida
+			}
+			else
+				continue;
 		}
 	}
 }
@@ -88,7 +100,7 @@ void    BitcoinExchange::setPriceVector(std::string file)
 	}
 	else
 		std::cerr << "File not available." << std::endl;
-	for (int i = 0; i < n - 1; i++)
-	 	std::cout << this->prices[i].first << " -- " << std::fixed << std::setprecision(2) << this->prices[i].second << std::endl;
-	std::cout << this->prices[0].first << " -- " << std::fixed << std::setprecision(2) << this->prices[0].second << std::endl;
+	// for (int i = 0; i < n - 1; i++)
+	//  	std::cout << this->prices[i].first << " -- " << std::fixed << std::setprecision(2) << this->prices[i].second << std::endl;
+	// std::cout << this->prices[0].first << " -- " << std::fixed << std::setprecision(2) << this->prices[0].second << std::endl;
 }
