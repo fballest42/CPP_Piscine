@@ -65,9 +65,10 @@ void	BitcoinExchange::getMovements(std::string imput_file)
 			std::stringstream lin(line);
 			getline(lin, date, '|');
 			getline(lin, value, '\n');
-			if (checkDateImputFile(date) && checkValueImputFile(value))
+			if (checkDateImputFile(date) && checkValueImputFile(std::strtof(value.c_str(), NULL)))
 			{
-			date.erase(std::remove(date.begin(), date.end(), '-'), date.end());
+				date.erase(std::remove(date.begin(), date.end(), '-'), date.end());
+				
 			//Comparar fecha con las del vector quedandose con el valor por debajo
 			//Hacer los cálculos con el valor anteriormente optenido
 			//Imprimir y dar formato a la salida
