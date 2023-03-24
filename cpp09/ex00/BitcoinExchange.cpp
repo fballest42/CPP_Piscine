@@ -2,7 +2,7 @@
 #include<string>
 #include<sstream>
 #include<fstream>
-#include<time.h>
+#include<ctime>
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange(): file("./data.csv")
@@ -18,18 +18,15 @@ BitcoinExchange::BitcoinExchange(const std::string file_imput): file("./data.csv
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
 {
-	
+	// Bucle de copia
 }
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &equal)
 {
-
+	// Bucle de copia
 }
 
-BitcoinExchange::~BitcoinExchange()
-{
-	std::cout << "Destorying BitcoinExchange Class" << std::endl;
-}
+BitcoinExchange::~BitcoinExchange() {}
 
 int     BitcoinExchange::getDate(void) const
 {
@@ -41,13 +38,39 @@ float   BitcoinExchange::getValue(void) const
 
 }
 
-bool	BitcoinExchange::checkDateImputFile(std::string const date) const
+bool	BitcoinExchange::checkDateImputFile(std::string date) const
 {
-	return true
-;}
+	int		year = 0, month = 0, day = 0;
+	char *p;
+	tm time_date;
+	time_t uni_time;
+	std::string m_date = date;
+
+	memset(&time_date, 0, sizeof(tm));
+	strptime(date.c_str(),"%Y-%m-%d", &time_date);
+	uni_time = mktime(&time_date);
+	time_date = *localtime(&uni_time);
+	year = std::atoi(std::strtok(const_cast<char *>(m_date.c_str()), "-"));
+	month = std::atoi(std::strtok(NULL, "-"));
+	day = std::atoi(std::strtok(NULL, "-"));
+ 	if ((time_date.tm_year + 1900 == year) && (time_date.tm_mon + 1 == month) && (time_date.tm_mday == day))
+		return true;
+	std::cout << "Error: bad imput => " << date << std::endl;
+	return false;
+}
 
 bool	BitcoinExchange::checkValueImputFile(float const value) const
 {
+	if (value < 0)
+	{
+		std::cout << "Error: not a positive number." << std::endl;
+		return false;
+	}
+	else if (value > 1000)
+	{
+		std::cout << "Error: number too large." << std::endl;
+		return false;
+	}
 	return true;
 }
 
@@ -55,8 +78,10 @@ void	BitcoinExchange::getMovements(std::string imput_file)
 {
 	std::string			line;
 	std::string			date;
+	std::string			u_time;
 	std::string			value;
 	std::ifstream 		imputf(imput_file);
+	int					n;
 	if (!imputf.fail())
 	{
 		getline(imputf, line);
@@ -65,16 +90,23 @@ void	BitcoinExchange::getMovements(std::string imput_file)
 			std::stringstream lin(line);
 			getline(lin, date, '|');
 			getline(lin, value, '\n');
-			if (checkDateImputFile(date) && checkValueImputFile(std::strtof(value.c_str(), NULL)))
+			float val = std::strtof(value.c_str(), NULL);
+			if (checkDateImputFile(date) && checkValueImputFile(val))
 			{
+				u_time = date.substr(0, 10);
 				date.erase(std::remove(date.begin(), date.end(), '-'), date.end());
-				
-			//Comparar fecha con las del vector quedandose con el valor por debajo
-			//Hacer los cálculos con el valor anteriormente optenido
-			//Imprimir y dar formato a la salida
+				std::vector<std::pair<int, float> >::iterator it = this->prices.begin();
+				n = 0;
+				while (it->first <= strtof(date.c_str(), NULL))
+				{
+					n++;
+					it++;
+				}
+				if (n > 0)
+					std::cout << u_time << " => " << val << " = " << this->prices[n - 1].second * val << std::endl;
+				else
+					std::cout << "Date is under any date included in the data file exchange." << std::endl;
 			}
-			else
-				continue;
 		}
 	}
 }
@@ -101,7 +133,6 @@ void    BitcoinExchange::setPriceVector(std::string file)
 	}
 	else
 		std::cerr << "File not available." << std::endl;
-	// for (int i = 0; i < n - 1; i++)
+	// for (int i = 0; i <= n - 1; i++)
 	//  	std::cout << this->prices[i].first << " -- " << std::fixed << std::setprecision(2) << this->prices[i].second << std::endl;
-	// std::cout << this->prices[0].first << " -- " << std::fixed << std::setprecision(2) << this->prices[0].second << std::endl;
 }

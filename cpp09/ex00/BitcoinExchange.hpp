@@ -19,8 +19,8 @@ class BitcoinExchange
 
 		int     getDate(void) const;
 		float   getValue(void) const;
-		bool	checkDateImputFile(std::string const date) const;
-		bool	checkValueImputFile(float const value) const;
+		bool	checkDateImputFile(std::string date) const;
+		bool	checkValueImputFile(float value) const;
 		void	getMovements(std::string imput_file);
 		void    setPriceVector(std::string file);
 };    		
