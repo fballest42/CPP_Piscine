@@ -47,7 +47,6 @@ std::string		BitcoinExchange::getFile(void) const
 bool	BitcoinExchange::checkDateImputFile(std::string date) const
 {
 	int		year = 0, month = 0, day = 0;
-	char *p;
 	tm time_date;
 	time_t uni_time;
 	std::string m_date = date;
