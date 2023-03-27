@@ -3,7 +3,7 @@
 #include<sstream>
 #include<fstream>
 #include<ctime>
-#include "BitcoinExchange.hpp"
+#include"BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange(): file("./data.csv")
 {
@@ -16,26 +16,32 @@ BitcoinExchange::BitcoinExchange(const std::string file_imput): file("./data.csv
 	this->getMovements(file_imput);
 }
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
-{
-	// Bucle de copia
-}
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy): file("./data.csv"), prices(copy.prices) {std::cout << "AQUIIIIIIII\n";}
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &equal)
 {
-	// Bucle de copia
+	this->file = equal.file;
+	std::vector<std::pair<int, float> >::iterator ite = this->prices.end();
+	for (std::vector<std::pair<int, float> >::iterator it = this->prices.begin(); it != ite; ++it)
+	{
+		this->prices.push_back(std::make_pair(it->first, it->second));
+	}
+	return (*this);
 }
 
-BitcoinExchange::~BitcoinExchange() {}
-
-int     BitcoinExchange::getDate(void) const
+BitcoinExchange::~BitcoinExchange()
 {
-
+	this->prices.clear();
 }
 
-float   BitcoinExchange::getValue(void) const
+std::vector<std::pair<int, float> >     BitcoinExchange::getPrices(void) const
 {
+	return this->prices;
+}
 
+std::string		BitcoinExchange::getFile(void) const
+{
+	return this->file;
 }
 
 bool	BitcoinExchange::checkDateImputFile(std::string date) const
@@ -82,6 +88,7 @@ void	BitcoinExchange::getMovements(std::string imput_file)
 	std::string			value;
 	std::ifstream 		imputf(imput_file);
 	int					n;
+
 	if (!imputf.fail())
 	{
 		getline(imputf, line);
@@ -99,13 +106,13 @@ void	BitcoinExchange::getMovements(std::string imput_file)
 				n = 0;
 				while (it->first <= strtof(date.c_str(), NULL))
 				{
-					n++;
 					it++;
+					n++;
 				}
 				if (n > 0)
 					std::cout << u_time << " => " << val << " = " << this->prices[n - 1].second * val << std::endl;
 				else
-					std::cout << "Date is under any date included in the data file exchange." << std::endl;
+					std::cout << "Date is lower than any date in the file data.csv." << std::endl;
 			}
 		}
 	}
@@ -117,7 +124,7 @@ void    BitcoinExchange::setPriceVector(std::string file)
 	std::string			date;
 	std::string			value;
 	std::ifstream 		pricef(file);
-	int n = 0;
+
 	if (!pricef.fail())
 	{
 		getline(pricef, line);
@@ -128,11 +135,11 @@ void    BitcoinExchange::setPriceVector(std::string file)
 			getline(lin, value, '\n');
 			date.erase(std::remove(date.begin(), date.end(), '-'), date.end());
 			this->prices.push_back(std::make_pair(std::atoi(date.c_str()), std::strtof(value.c_str(), NULL)));
-			n++;
 		}
 	}
 	else
 		std::cerr << "File not available." << std::endl;
+	// // Only usefull to print which data has charged the funtion you will need a "n" counter initialize to 0.
 	// for (int i = 0; i <= n - 1; i++)
 	//  	std::cout << this->prices[i].first << " -- " << std::fixed << std::setprecision(2) << this->prices[i].second << std::endl;
 }
