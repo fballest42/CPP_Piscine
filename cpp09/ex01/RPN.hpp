@@ -1,6 +1,8 @@
 #ifndef RPN_HPP
 # define RPN_HPP
 # include <iostream>
+# include <string>
+# include <utility>
 # include <stack>
 
 class rpn
@@ -8,7 +10,6 @@ class rpn
     private:
         std::string                 s_notat; 
         std::stack<float>           numbers;
-        float                       res;
         rpn();
 
     public:
@@ -17,9 +18,9 @@ class rpn
         rpn &operator=(const rpn &equal);
         ~rpn();
 
-        void         setNotation(std::string notat);
-        std::string  getNotation(void) const;
-        int          operate_notat(std::string const notat, int i);
+        void            setNotation(std::string const notat);
+        std::string     getNotation(void) const;
+        float           operate_notat(std::string const notat, int i);
 };
 
 #endif

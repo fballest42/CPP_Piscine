@@ -1,5 +1,3 @@
-#include<string>
-#include<utility>
 #include"RPN.hpp"
 
 rpn::rpn() {}
@@ -7,7 +5,6 @@ rpn::rpn() {}
 rpn::rpn(std::string const notat): s_notat(notat)
 {
     this->setNotation(this->s_notat);
-    this->operate_notat(this->s_notat, 0);
 }
 
 rpn::rpn(const rpn &copy): s_notat(copy.s_notat)
@@ -24,37 +21,35 @@ rpn &rpn::operator=(const rpn &equal)
 
 rpn::~rpn() {}
 
-void rpn::setNotation(std::string notat)
+void rpn::setNotation(std::string const notat)
 {
     int i = 0;
     int j = notat.length();
 
-    for (i = 0; i < j; i++)
+    while (i < j)
     {
-        while (notat[i] == ' ')
+        if (notat[i] == ' ')
             i++;
-        while (notat[i] >= '0' && notat[i] <= '9')
-        {
+        if (notat[i] >= '0' && notat[i] <= '9')
             this->numbers.push(notat[i] - 48);
-            i++;
-        }
-        if ((notat[i] == '+' || notat[i] == '-'
-            || notat[i] == '*' || notat[i] == '/') && (this->numbers.size() >= 2 && this->numbers.size() <= 3))
-        {
-            this->res = operate_notat(notat, i);
-            i++;
-        }
+        else if ((notat[i] == '+' || notat[i] == '-'
+            || notat[i] == '*' || notat[i] == '/') && (this->numbers.size() >= 2))
+            operate_notat(notat, i);
         else
-        {
-            std::cout << "Error\n";
-            return;
-        }
+            break;
+        i++;
     }
-    // for(i = 0; i <= (j = notation.size()); i++)
-    // {
-    //     std::cout << notation.top() << "\n";
-    //     notation.pop();
-    // }
+    if(i == j && this->numbers.size() == 1)
+    {
+        std::cout << this->numbers.top() << std::endl;
+        return;
+    }
+    else if ((i != j) || (i == j && this->numbers.size() > 1) || (i == j && (notat[i] == '+' || notat[i] == '-'
+        || notat[i] == '*' || notat[i] == '/') && (this->numbers.size() == 1)))
+    {
+        std::cout << "Error\n";
+        return;
+    }
 }
 
 std::string  rpn::getNotation(void) const
@@ -62,24 +57,27 @@ std::string  rpn::getNotation(void) const
     return this->s_notat;
 }
 
-int   rpn::operate_notat(std::string const notat, int i)
+float   rpn::operate_notat(std::string const notat, int i)
 {
     float x;
     float y;
-
+    
     x = this->numbers.top();
     this->numbers.pop();
     y = this->numbers.top();
     this->numbers.pop();
-    std::cout << "X= " << x << " -- Y= " << y << "\n";
     if (notat[i] == '+')
-        this->numbers.push(x + y);
+        this->numbers.push(y + x);
     else if (notat[i] == '-')
-        this->numbers.push(x - y);
+        this->numbers.push(y - x);
     else if (notat[i] == '*')
-        this->numbers.push(x * y);
-    else if (notat[i] == '/')
-        this->numbers.push(x / y);
-    std::cout << "RESULT= " << this->numbers.top() << std::endl;
+        this->numbers.push(y * x);
+    else if (notat[i] == '/' && x != 0)
+        this->numbers.push(y / x);
+    else if (notat[i] == '/' && x == 0)
+    {
+        std::cout << "Error" << std::endl;
+        return 0;
+    }
     return this->numbers.top();
 }

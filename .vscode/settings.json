@@ -67,6 +67,7 @@
         "new": "cpp",
         "ratio": "cpp",
         "stdexcept": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "queue": "cpp"
     }
 }
