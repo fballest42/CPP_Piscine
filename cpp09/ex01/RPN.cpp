@@ -1,15 +1,13 @@
 #include<string>
+#include<utility>
 #include"RPN.hpp"
 
-rpn::rpn()
-{
-
-}
+rpn::rpn() {}
 
 rpn::rpn(std::string const notat): s_notat(notat)
 {
     this->setNotation(this->s_notat);
-    this->operate_notat(this->s_notat, 0, 0);
+    this->operate_notat(this->s_notat, 0);
 }
 
 rpn::rpn(const rpn &copy): s_notat(copy.s_notat)
@@ -29,24 +27,27 @@ rpn::~rpn() {}
 void rpn::setNotation(std::string notat)
 {
     int i = 0;
-    int j = 0;
-    int count = 0;
+    int j = notat.length();
 
-    notat.erase(std::remove(notat.begin(), notat.end(), ::isspace), notat.end());
-    for (i = 0; i >  (j = notat.length()); i++)
+    for (i = 0; i < j; i++)
     {
-        if (notat[i] >= 48 && notat[i] <= 57)
+        while (notat[i] == ' ')
+            i++;
+        while (notat[i] >= '0' && notat[i] <= '9')
         {
-            numbers.push(notat[i]);
-            count++;
+            this->numbers.push(notat[i] - 48);
+            i++;
         }
-        else if ((notat[i] == '+' || notat[i] == '-'
-            || notat[i] == '*' || notat[i] == '/') && (numbers.size() >= 1 && numbers.size() <= 3));
-            i = operate_notat(notat, i, count);
+        if ((notat[i] == '+' || notat[i] == '-'
+            || notat[i] == '*' || notat[i] == '/') && (this->numbers.size() >= 2 && this->numbers.size() <= 3))
+        {
+            this->res = operate_notat(notat, i);
+            i++;
+        }
         else
         {
             std::cout << "Error\n";
-            break;
+            return;
         }
     }
     // for(i = 0; i <= (j = notation.size()); i++)
@@ -58,17 +59,27 @@ void rpn::setNotation(std::string notat)
 
 std::string  rpn::getNotation(void) const
 {
-
+    return this->s_notat;
 }
 
-int   rpn::operate_notat(std::string const notat, int i, int count)
+int   rpn::operate_notat(std::string const notat, int i)
 {
-    int pair = 0;
-    int size;
-    char    c;
-    int x = 0;
-    int y = 0;
-    float res = 0;
+    float x;
+    float y;
 
-
+    x = this->numbers.top();
+    this->numbers.pop();
+    y = this->numbers.top();
+    this->numbers.pop();
+    std::cout << "X= " << x << " -- Y= " << y << "\n";
+    if (notat[i] == '+')
+        this->numbers.push(x + y);
+    else if (notat[i] == '-')
+        this->numbers.push(x - y);
+    else if (notat[i] == '*')
+        this->numbers.push(x * y);
+    else if (notat[i] == '/')
+        this->numbers.push(x / y);
+    std::cout << "RESULT= " << this->numbers.top() << std::endl;
+    return this->numbers.top();
 }
