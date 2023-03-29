@@ -77,7 +77,7 @@ float   rpn::operate_notat(std::string const notat, int i)
     else if (notat[i] == '/' && x == 0)
     {
         std::cout << "Error" << std::endl;
-        return 0;
+        return ;
     }
     return this->numbers.top();
 }
