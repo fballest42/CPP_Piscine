@@ -129,7 +129,7 @@ void            PmergeMe::orderLista(void)
 {
 	time_t	start;
 	time_t  end;
-	double  seconds;
+	double seconds;
 	std::list<int> 	list;
 	
 	time(&start);
@@ -158,10 +158,9 @@ void            PmergeMe::orderQueue(void)
 		std::cout << " " << this->cola.front();
 		this->cola.pop();
 	}
-	std::clock_t	end;	
 	// end = std::chrono::now();
 	// std::chrono::duration<double, std::milli>(end - start).count();
-	std::cout << ". And sorted it delayed: " << std::fixed << std::setprecision(3) << std::chrono::duration<double, std::milli>(t_end - t_start).count() << " miliseconds." << std::endl;
+	std::cout << ". And sorted it delayed: " << std::fixed << std::setprecision(3) << "TIEMPO_A_CALCULAR" << " miliseconds." << std::endl;
 }
 
 // template<class T> T PmergeMe::merge_insert_sort(T sor)
