@@ -150,10 +150,10 @@ void            PmergeMe::orderQueue(void)
 	double  seconds;
 	
 	time(&start);
-	std::cout << "HERE IS THE QUEUE SORTED ==> ";
+	std::cout << "HERE IS THE QUEUE SORTED ==>";
 	while (!this->cola.empty())
 	{
-		std::cout << this->cola.front() << " ";
+		std::cout << " " << this->cola.front();
 		this->cola.pop();
 		usleep(10000);
 	}
