@@ -6,7 +6,7 @@
 /*   By: fballest <fballest@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:31:57 by fballest          #+#    #+#             */
-/*   Updated: 2022/03/23 11:51:41 by fballest         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:55:38 by fballest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ unsigned long 	Span::shortestSpan() const
 {
 	if ((this->_last - this->_array.begin()) <= 1)
 		throw NoSpanException();
-	std::sort(this->_start, this->_finish);
+	std::SORT(this->_start, this->_finish);
 	unsigned long min = (long)this->_array[1] - (long)this->_array[0];
 	int size = this->_array.size();
 	int	i = 0;

@@ -133,8 +133,8 @@ void            PmergeMe::orderLista(void)
 	std::list<int> 	list;
 	
 	time(&start);
-	list.assign(this->lista.begin(), this->lista.end());
-	// HERE THE SORT ALGORITHM
+	// list.assign(this->lista.begin(), this->lista.end());
+	this->merge_insert(this->lista);
 	std::cout << "HERE IS THE LIST SORTED ==>";
 	for (std::list<int>::iterator it = list.begin(); it != list.end(); ++it)
 	{
@@ -143,7 +143,7 @@ void            PmergeMe::orderLista(void)
 	}
 	time(&end);
 	seconds = std::difftime(end, start);
-	std::cout << ". And sorted it delayed: " << std::fixed << std::setprecision(4) << seconds << " microseconds." << std::endl;
+	std::cout << ". And SORTed it delayed: " << std::fixed << std::setprecision(4) << seconds << " microseconds." << std::endl;
 }
 
 void            PmergeMe::orderQueue(void)
@@ -152,6 +152,7 @@ void            PmergeMe::orderQueue(void)
 	// std::clock_t	start;	
 	// start = std::chrono::high_resolution_clock::now()
 	// HERE THE SORT ALGORITHM
+	this->merge_insert(this->cola);
 	std::cout << "HERE IS THE QUEUE SORTED ==>";
 	while (!this->cola.empty())
 	{
@@ -160,10 +161,52 @@ void            PmergeMe::orderQueue(void)
 	}
 	// end = std::chrono::now();
 	// std::chrono::duration<double, std::milli>(end - start).count();
-	std::cout << ". And sorted it delayed: " << std::fixed << std::setprecision(3) << "TIEMPO_A_CALCULAR" << " miliseconds." << std::endl;
+	std::cout << ". And SORTed it delayed: " << std::fixed << std::setprecision(3) << "TIEMPO_A_CALCULAR" << " miliseconds." << std::endl;
 }
 
-// template<class T> T PmergeMe::merge_insert_sort(T sor)
-// {
+template<typename Container> Container PmergeMe::merge_insert(Container &qol)
+{
+	Container qol_a, qol_b;
+	int				middle;
 
-// }
+	if (qol.size() <= 1)
+		return qol;
+    middle = qol.size() / 2;
+    for (int i = 0; i < middle; i++)
+		qol_a = push_pop(qol_a, qol);
+	qol_b = push_pop_bucle(qol_b, qol);
+    merge_insert(qol_a);
+    merge_insert(qol_b);
+	while (!qol_a.empty() && !qol_b.empty())
+	{
+        if (qol_a.front() <= qol_b.front())
+			qol = push_pop(qol, qol_a);
+		else
+			qol = push_pop(qol, qol_b);
+    }
+	qol = push_pop_bucle(qol, qol_a);
+	qol = push_pop_bucle(qol, qol_b);
+	return qol;
+}
+
+
+template<typename Container> Container PmergeMe::push_pop_bucle(Container &dest, Container &orig)
+{
+	while (!orig.empty())
+		dest = push_pop(dest, orig);
+	return dest;
+}
+
+template<typename Container> Container PmergeMe::push_pop(Container &dest, Container &orig)
+{
+    dest.push(orig.front());
+    orig.pop();
+	return dest;
+}
+
+template<typename Container> Container PmergeMe::push_pop(Container &dest, Container &orig)
+{
+    dest.push_back(orig.front());
+    orig.pop_back();
+	return dest;
+}

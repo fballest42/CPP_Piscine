@@ -30,7 +30,10 @@ class PmergeMe
         std::queue<int>         getQueue(void) const;
         void                    orderLista(void);
         void                    orderQueue(void);
-        // template<class T> T     merge_insert_sort(T sor);
+        template<typename Container> Container merge_insert(Container &qol);
+        template<typename Container> Container push_pop_bucle(Container &dest, Container &orig);
+        template<typename Container> Container push_pop(Container &dest, Container &orig);
 };
+
 
 #endif
