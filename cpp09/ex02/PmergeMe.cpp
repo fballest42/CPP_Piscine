@@ -9,8 +9,7 @@ PmergeMe::PmergeMe(std::string const numbers)
 	this->lista_time = 0;
 	this->cola_time = 0;
 	this->setLista(numbers);
-	if (!lista.empty())
-		this->setQueue(numbers);
+	this->setQueue(numbers);
 }
 
 PmergeMe::PmergeMe(PmergeMe const &copy): lista_time(copy.lista_time), cola_time(copy.cola_time), cola(copy.cola), lista(copy.lista) {}
@@ -131,33 +130,41 @@ void            PmergeMe::orderLista(void)
 	time_t	start;
 	time_t  end;
 	double  seconds;
+	std::list<int> 	list;
+	
 	time(&start);
-
-	std::cout << "HERE IS THE LIST SORTED ==> ";
-	for (std::list<int>::iterator it = this->lista.begin(); it != this->lista.end(); ++it)
+	list.assign(this->lista.begin(), this->lista.end());
+	// HERE THE SORT ALGORITHM
+	std::cout << "HERE IS THE LIST SORTED ==>";
+	for (std::list<int>::iterator it = list.begin(); it != list.end(); ++it)
 	{
-		std::cout << (*it) << " ";
+		std::cout << " " << list.front();
+		list.pop_front();
 	}
 	time(&end);
 	seconds = std::difftime(end, start);
-	std::cout << ". And sorted it delayed: " << seconds << " seconds." << std::endl;
+	std::cout << ". And sorted it delayed: " << std::fixed << std::setprecision(4) << seconds << " microseconds." << std::endl;
 }
 
 void            PmergeMe::orderQueue(void)
 {
-	time_t	start;
-	time_t  end;
-	double  seconds;
-	
-	time(&start);
+
+	// std::clock_t	start;	
+	// start = std::chrono::high_resolution_clock::now()
+	// HERE THE SORT ALGORITHM
 	std::cout << "HERE IS THE QUEUE SORTED ==>";
 	while (!this->cola.empty())
 	{
 		std::cout << " " << this->cola.front();
 		this->cola.pop();
-		usleep(10000);
 	}
-	time(&end);
-	seconds = std::difftime(end, start);
-	std::cout << ". And sorted it delayed: " << std::fixed << std::setprecision(3) << seconds << " miliseconds." << std::endl;
+	std::clock_t	end;	
+	// end = std::chrono::now();
+	// std::chrono::duration<double, std::milli>(end - start).count();
+	std::cout << ". And sorted it delayed: " << std::fixed << std::setprecision(3) << std::chrono::duration<double, std::milli>(t_end - t_start).count() << " miliseconds." << std::endl;
 }
+
+// template<class T> T PmergeMe::merge_insert_sort(T sor)
+// {
+
+// }

@@ -24,12 +24,13 @@ class PmergeMe
         PmergeMe &operator=(PmergeMe const &equal);
         ~PmergeMe();
 
-        void            setLista(std::string const numbers);
-        std::list<int>  getLista(void) const;
-        void            setQueue(std::string const numbers);
-        std::queue<int> getQueue(void) const;
-        void            orderLista(void);
-        void            orderQueue(void);
+        void                    setLista(std::string const numbers);
+        std::list<int>          getLista(void) const;
+        void                    setQueue(std::string const numbers);
+        std::queue<int>         getQueue(void) const;
+        void                    orderLista(void);
+        void                    orderQueue(void);
+        // template<class T> T     merge_insert_sort(T sor);
 };
 
 #endif
