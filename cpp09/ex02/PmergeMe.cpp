@@ -1,11 +1,11 @@
 #include"PmergeMe.hpp"
-#include<unistd.h>
+// #include<unistd.h>
 
 PmergeMe::PmergeMe() {}
 
 PmergeMe::PmergeMe(std::string const numbers)
 {
-	std::cout << "HERE IS THE ARGUMENTS RECEIVED ==> " << numbers << std::endl;
+	std::cout << std::setw(10) << std::left << "Before:" << numbers << std::endl;
 	this->lista_time = 0;
 	this->cola_time = 0;
 	this->setLista(numbers);
@@ -28,7 +28,6 @@ PmergeMe::~PmergeMe()
 	this->lista.erase(lista.begin(), lista.end());
 	while (!this->cola.empty())
 		this->cola.pop();
-	std::cout << "Bye\n";
 }
 
 void            PmergeMe::setLista(std::string const numbers)
@@ -71,7 +70,7 @@ void            PmergeMe::setLista(std::string const numbers)
 		}
 	}
 	if (this->lista.size() > 0)
-		this->orderLista();
+		this->sorter_function(this->lista);
 }
 
 std::list<int>  PmergeMe::getLista(void) const
@@ -117,7 +116,7 @@ void            PmergeMe::setQueue(std::string const numbers)
 		}
 	}
 	if (this->cola.size() > 0)
-		this->orderQueue();
+		this->sorter_function(this->cola);
 }
 
 std::queue<int> PmergeMe::getQueue(void) const
@@ -125,48 +124,87 @@ std::queue<int> PmergeMe::getQueue(void) const
 	return this->cola;
 }
 
-void            PmergeMe::orderLista(void)
+std::list<int>          PmergeMe::sorter_function(std::list<int> &qol)
 {
-	time_t	start;
-	time_t  end;
-	double seconds;
-	std::list<int> 	list;
+	struct timeval	start, end;
+	long double 	elap;
+	long			seconds, microseconds;
+	std::string		numbers;
 	
-	time(&start);
-	// list.assign(this->lista.begin(), this->lista.end());
-	this->merge_insert(this->lista);
-	std::cout << "HERE IS THE LIST SORTED ==>";
-	for (std::list<int>::iterator it = list.begin(); it != list.end(); ++it)
+	gettimeofday(&start, 0);
+	this->merge_insert(qol);
+	std::cout << "HERE IS THE LIST SORTED" << std::endl;
+	for (std::list<int>::iterator it = qol.begin(); it != qol.end(); ++it)
 	{
-		std::cout << " " << list.front();
-		list.pop_front();
+		numbers += " " + std::to_string(qol.front());
+		qol.pop_front();
 	}
-	time(&end);
-	seconds = std::difftime(end, start);
-	std::cout << ". And SORTed it delayed: " << std::fixed << std::setprecision(4) << seconds << " microseconds." << std::endl;
+	std::cout << numbers << std::endl;
+	gettimeofday(&end, 0);
+	seconds = end.tv_sec - start.tv_sec;
+	microseconds = end.tv_usec - start.tv_usec;
+	elap = seconds + microseconds * 1e-6;
+	if (elap < 1.0)
+		std::cout << "And sort it delayed: " << std::fixed << std::setprecision(5) << elap << " microseconds." << std::endl;
+	else
+		std::cout << "And sort it delayed: " << std::fixed << std::setprecision(5) << elap << " seconds." << std::endl;
+	return qol;
 }
 
-void            PmergeMe::orderQueue(void)
+std::queue<int>         PmergeMe::sorter_function(std::queue<int> &qol)
 {
-
-	// std::clock_t	start;	
-	// start = std::chrono::high_resolution_clock::now()
-	// HERE THE SORT ALGORITHM
-	this->merge_insert(this->cola);
-	std::cout << "HERE IS THE QUEUE SORTED ==>";
-	while (!this->cola.empty())
+	struct timeval	start, end;
+	long double 	elap;
+	long			seconds, microseconds;
+	
+	gettimeofday(&start, 0);
+	this->merge_insert(qol);
+	std::cout << "HERE IS THE QUEUE SORTED" << std::endl;
+	while (!qol.empty())
 	{
-		std::cout << " " << this->cola.front();
-		this->cola.pop();
+		std::cout << " " << qol.front();
+		qol.pop();
 	}
-	// end = std::chrono::now();
-	// std::chrono::duration<double, std::milli>(end - start).count();
-	std::cout << ". And SORTed it delayed: " << std::fixed << std::setprecision(3) << "TIEMPO_A_CALCULAR" << " miliseconds." << std::endl;
+	std::cout << std::endl;
+	gettimeofday(&end, 0);
+	seconds = end.tv_sec - start.tv_sec;
+	microseconds = end.tv_usec - start.tv_usec;
+	elap = seconds + microseconds * 1e-6;
+	if (elap < 1.0)
+		std::cout << "And sort it delayed: " << std::fixed << std::setprecision(5) << elap << " microseconds." << std::endl;
+	else
+		std::cout << "And sort it delayed: " << std::fixed << std::setprecision(5) << elap << " seconds." << std::endl;
+	return qol;
 }
 
-template<typename Container> Container PmergeMe::merge_insert(Container &qol)
+std::queue<int>         PmergeMe::merge_insert(std::queue<int> &qol)
 {
-	Container qol_a, qol_b;
+	std::queue<int> qol_a, qol_b;
+	int				middle;
+
+	if (qol.size() <= 1)
+		return qol;
+    middle = qol.size() / 2;
+    for (int i = 0; i < middle; i++)
+		qol_a = push_pop(qol_a, qol);
+	qol_b = push_pop_bucle(qol_b, qol);
+    merge_insert(qol_a);
+    merge_insert(qol_b);
+	while (!qol_a.empty() && !qol_b.empty())
+	{
+        if (qol_a.front() <= qol_b.front())
+			qol = push_pop(qol, qol_a);
+		else
+			qol = push_pop(qol, qol_b);
+    }
+	qol = push_pop_bucle(qol, qol_a);
+	qol = push_pop_bucle(qol, qol_b);
+	return qol;
+}
+
+std::list<int>          PmergeMe::merge_insert(std::list<int> &qol)
+{
+	std::list<int> qol_a, qol_b;
 	int				middle;
 
 	if (qol.size() <= 1)
@@ -190,23 +228,31 @@ template<typename Container> Container PmergeMe::merge_insert(Container &qol)
 }
 
 
-template<typename Container> Container PmergeMe::push_pop_bucle(Container &dest, Container &orig)
+std::queue<int>         PmergeMe::push_pop_bucle(std::queue<int> &dest, std::queue<int> &orig)
 {
 	while (!orig.empty())
 		dest = push_pop(dest, orig);
 	return dest;
 }
 
-template<typename Container> Container PmergeMe::push_pop(Container &dest, Container &orig)
+std::list<int>          PmergeMe::push_pop_bucle(std::list<int> &dest, std::list<int> &orig)
+{
+	while (!orig.empty())
+		dest = push_pop(dest, orig);
+	return dest;
+}
+
+std::queue<int>         PmergeMe::push_pop(std::queue<int> &dest, std::queue<int> &orig)
 {
     dest.push(orig.front());
     orig.pop();
 	return dest;
 }
 
-template<typename Container> Container PmergeMe::push_pop(Container &dest, Container &orig)
+
+std::list<int>          PmergeMe::push_pop(std::list<int> &dest, std::list<int> &orig)
 {
     dest.push_back(orig.front());
-    orig.pop_back();
+    orig.pop_front();
 	return dest;
 }

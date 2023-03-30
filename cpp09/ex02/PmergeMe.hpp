@@ -4,8 +4,9 @@
 # include <string>
 # include <utility>
 # include <queue>
-# include <ctime>
-# include <thread>
+// # include <ctime>
+# include <sys/time.h>
+// # include <thread>
 # include <iomanip>
 # include <list>
 
@@ -28,11 +29,14 @@ class PmergeMe
         std::list<int>          getLista(void) const;
         void                    setQueue(std::string const numbers);
         std::queue<int>         getQueue(void) const;
-        void                    orderLista(void);
-        void                    orderQueue(void);
-        template<typename Container> Container merge_insert(Container &qol);
-        template<typename Container> Container push_pop_bucle(Container &dest, Container &orig);
-        template<typename Container> Container push_pop(Container &dest, Container &orig);
+        std::queue<int>         sorter_function(std::queue<int> &qol);
+        std::list<int>          sorter_function(std::list<int> &qol);
+        std::queue<int>         merge_insert(std::queue<int> &qol);
+        std::list<int>          merge_insert(std::list<int> &qol);
+        std::queue<int>         push_pop_bucle(std::queue<int> &dest, std::queue<int> &orig);
+        std::list<int>          push_pop_bucle(std::list<int> &dest, std::list<int> &orig);
+        std::queue<int>         push_pop(std::queue<int> &dest, std::queue<int> &orig);
+        std::list<int>          push_pop(std::list<int> &dest, std::list<int> &orig);
 };
 
 

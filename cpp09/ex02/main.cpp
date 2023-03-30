@@ -16,7 +16,6 @@ int main(int argc, char **argv)
         num += " ";
         i++;
     }
-    std::cout << num << std::endl;
     PmergeMe pm(num);
     return 0;
 }
