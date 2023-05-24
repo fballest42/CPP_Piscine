@@ -5,19 +5,25 @@ PmergeMe::PmergeMe() {}
 
 PmergeMe::PmergeMe(std::string const numbers)
 {
-	std::cout << std::setw(10) << std::left << "Before:" << numbers << std::endl;
+
 	this->lista_time = 0;
 	this->cola_time = 0;
+	gettimeofday(&this->start, 0);
+	std::cout << std::setw(10) << std::left << "Before: " << numbers << std::endl;
 	this->setLista(numbers);
 	this->setQueue(numbers);
 }
 
-PmergeMe::PmergeMe(PmergeMe const &copy): lista_time(copy.lista_time), cola_time(copy.cola_time), cola(copy.cola), lista(copy.lista) {}
+PmergeMe::PmergeMe(PmergeMe const &copy): lista_time(copy.lista_time), cola_time(copy.cola_time), cola(copy.cola), lista(copy.lista)
+{
+	gettimeofday(&this->start, 0);
+}
 
 PmergeMe &PmergeMe::operator=(PmergeMe const &equal)
 {
 	this->lista_time = 0;
 	this->cola_time = 0;
+	gettimeofday(&this->start, 0);
 	this->lista = equal.lista;
 	this->cola = equal.cola;
 	return *this;
@@ -126,54 +132,51 @@ std::queue<int> PmergeMe::getQueue(void) const
 
 std::list<int>          PmergeMe::sorter_function(std::list<int> &qol)
 {
-	struct timeval	start, end;
 	long double 	elap;
-	long			seconds, microseconds;
+	long			seconds, microseconds, size;
 	std::string		numbers;
 	
-	gettimeofday(&start, 0);
+	size = qol.size();
 	this->merge_insert(qol);
-	std::cout << "HERE IS THE LIST SORTED" << std::endl;
+	std::cout << std::setw(10) << std::left << "After:";
 	for (std::list<int>::iterator it = qol.begin(); it != qol.end(); ++it)
 	{
-		numbers += " " + std::to_string(qol.front());
+		numbers += std::to_string(qol.front()) + " ";
 		qol.pop_front();
 	}
 	std::cout << numbers << std::endl;
-	gettimeofday(&end, 0);
-	seconds = end.tv_sec - start.tv_sec;
-	microseconds = end.tv_usec - start.tv_usec;
-	elap = seconds + microseconds * 1e-6;
+	gettimeofday(&this->end, 0);
+	seconds = this->end.tv_sec - this->start.tv_sec;
+	microseconds = this->end.tv_usec - this->start.tv_usec;
+	elap = seconds + microseconds * 1e-6; 
 	if (elap < 1.0)
-		std::cout << "And sort it delayed: " << std::fixed << std::setprecision(5) << elap << " microseconds." << std::endl;
+		std::cout << "Time to process a range of: " << size << " elements with std::list  : " << std::fixed << std::setprecision(5) << elap << " microseconds." << std::endl;
 	else
-		std::cout << "And sort it delayed: " << std::fixed << std::setprecision(5) << elap << " seconds." << std::endl;
+		std::cout << "Time to process a range of: " << size << " elements with std::list  : " << std::fixed << std::setprecision(5) << elap << " seconds." << std::endl;
 	return qol;
 }
 
 std::queue<int>         PmergeMe::sorter_function(std::queue<int> &qol)
 {
-	struct timeval	start, end;
 	long double 	elap;
-	long			seconds, microseconds;
+	long			seconds, microseconds, size;
 	
-	gettimeofday(&start, 0);
+	size = qol.size();
 	this->merge_insert(qol);
-	std::cout << "HERE IS THE QUEUE SORTED" << std::endl;
-	while (!qol.empty())
-	{
-		std::cout << " " << qol.front();
-		qol.pop();
-	}
-	std::cout << std::endl;
-	gettimeofday(&end, 0);
-	seconds = end.tv_sec - start.tv_sec;
-	microseconds = end.tv_usec - start.tv_usec;
+	// while (!qol.empty())
+	// {
+	// 	std::cout << " " << qol.front();
+	// 	qol.pop();
+	// }
+	// std::cout << std::endl;
+	gettimeofday(&this->end, 0);
+	seconds = this->end.tv_sec - this->start.tv_sec;
+	microseconds = this->end.tv_usec - this->start.tv_usec;
 	elap = seconds + microseconds * 1e-6;
 	if (elap < 1.0)
-		std::cout << "And sort it delayed: " << std::fixed << std::setprecision(5) << elap << " microseconds." << std::endl;
+		std::cout << "Time to process a range of: " << size << " elements with std::queue : " << std::fixed << std::setprecision(5) << elap << " microseconds." << std::endl;
 	else
-		std::cout << "And sort it delayed: " << std::fixed << std::setprecision(5) << elap << " seconds." << std::endl;
+		std::cout << "Time to process a range of: " << size << " elements with std::queue : " << std::fixed << std::setprecision(5) << elap << " seconds." << std::endl;
 	return qol;
 }
 

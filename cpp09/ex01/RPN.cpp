@@ -47,7 +47,7 @@ void rpn::setNotation(std::string const notat)
     else if ((i != j) || (i == j && this->numbers.size() > 1) || (i == j && (notat[i] == '+' || notat[i] == '-'
         || notat[i] == '*' || notat[i] == '/') && (this->numbers.size() == 1)))
     {
-        std::cout << "Error\n";
+        std::cout << "Error: Invalid Polish reverse notation.\n";
         return;
     }
 }
@@ -57,7 +57,7 @@ std::string  rpn::getNotation(void) const
     return this->s_notat;
 }
 
-float   rpn::operate_notat(std::string const notat, int i)
+void   rpn::operate_notat(std::string const notat, int i)
 {
     float x;
     float y;
@@ -76,8 +76,8 @@ float   rpn::operate_notat(std::string const notat, int i)
         this->numbers.push(y / x);
     else if (notat[i] == '/' && x == 0)
     {
-        std::cout << "Error" << std::endl;
+        std::cout << "Error: Invalid Div by 0." << std::endl;
         return ;
     }
-    return this->numbers.top();
+    return ;
 }

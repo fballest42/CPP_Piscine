@@ -20,7 +20,7 @@ class rpn
 
         void            setNotation(std::string const notat);
         std::string     getNotation(void) const;
-        float           operate_notat(std::string const notat, int i);
+        void            operate_notat(std::string const notat, int i);
 };
 
 #endif

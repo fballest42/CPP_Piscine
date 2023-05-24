@@ -6,7 +6,7 @@
 #    By: fballest <fballest@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 10:22:49 by fballest          #+#    #+#              #
-#    Updated: 2023/03/28 12:10:35 by fballest         ###   ########.fr        #
+#    Updated: 2023/05/24 12:54:50 by fballest         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,12 +36,12 @@ $(NAME): $(OBJS)
 	@$(CXX) $(CXXFLAGS) ${OBJS} -o ${NAME}
 	@echo "$(NAME) file done"
 	@echo "$(GREEN)==========WELLDONE==========$(RESET)"
-	@echo "Success creating $(NAME) file"
+	@echo "Success creating $(NAME) file\n"
 
 clean:
 	@$(RM) $(OBJS)
 	@echo "$(GREEN)==========REMOVED==========$(RESET)"
-	@echo "Success normal cleaning of $(NAME)"
+	@echo "Success normal cleaning of $(NAME)\n"
 
 re:	clean all
 
@@ -49,6 +49,6 @@ fclean:
 	@$(RM) $(OBJS)
 	@$(RM) $(NAME)
 	@echo "$(GREEN)==========REMOVED==========$(RESET)"
-	@echo "Success full cleaning of $(NAME)"
+	@echo "Success full cleaning of $(NAME)\n"
 
 .PHONY: all clean fclean re shell

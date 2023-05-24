@@ -4,9 +4,7 @@
 # include <string>
 # include <utility>
 # include <queue>
-// # include <ctime>
 # include <sys/time.h>
-// # include <thread>
 # include <iomanip>
 # include <list>
 
@@ -15,6 +13,8 @@ class PmergeMe
     private:
         unsigned int        lista_time;
         unsigned int        cola_time;
+        struct timeval      start;
+        struct timeval      end;
         std::queue<int>     cola;
         std::list<int>      lista;
         PmergeMe();
@@ -38,6 +38,5 @@ class PmergeMe
         std::queue<int>         push_pop(std::queue<int> &dest, std::queue<int> &orig);
         std::list<int>          push_pop(std::list<int> &dest, std::list<int> &orig);
 };
-
 
 #endif
